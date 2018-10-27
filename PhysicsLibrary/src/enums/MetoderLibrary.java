@@ -105,9 +105,27 @@ public class MetoderLibrary
 		return summa;
 	}
 	
+	/**
+	 * Gör om volymen av en vätska till massan
+	 * @param fluid vätskan
+	 * @param volume volym värdet för vätskan
+	 * @return skickar tillbaka massa för vätskan
+	 */
 	public static double volumeToMass(FluidTable fluid, double volume) {
 		double mass = 0;
 		mass = volume * fluid.density;
+		return mass;
+	}
+	
+	/**
+	 * Gör om volymen av en gas till massan
+	 * @param gas gasen
+	 * @param volume volym värdet för gasen
+	 * @return skickar tillbaka gasens massa
+	 */
+	public static double volumeToMass(GasTable gas, double volume) {
+		double mass = 0;
+		mass = volume * gas.density;
 		return mass;
 	}
 }
