@@ -176,4 +176,25 @@ public class MetoderLibrary
 		heat = solid.heatCapacity * mass * deltaT;
 		return heat;
 	}
+	
+	public static double heat(FluidTable fluid, double volume, double deltaT) {
+		double heat = 0;
+		double mass = 0;
+		mass = volume * fluid.density;
+		heat = fluid.heatCapacity * mass * deltaT;
+		return heat;
+	}
+	
+	public static double heat(GasTable gas, double volume, double deltaT) {
+		double heat = 0;
+		double mass = 0;
+		mass = volume * gas.density;
+		heat = gas.heatCapacity * mass * deltaT;
+		return heat;
+	}
+	
+	public static double velocityToHeight(double velocity) {
+		velocity = velocity / 2;
+		return velocity;
+	}
 }
