@@ -129,9 +129,51 @@ public class MetoderLibrary
 		return mass;
 	}
 	
+	/**
+	 * Gör om volymen av ett fast objekt till dess massa
+	 * @param solid fasta objektet
+	 * @param volume volym värdet för fasta objektet
+	 * @return skickar tillbaka fasta objektets massa
+	 */
 	public static double volumeToMass(SolidTable solid, double volume) {
 		double mass = 0;
 		mass = volume * solid.density;
 		return mass;
+	}
+	
+	public static double svtVelocity(double distance, double time) {
+		double svt = 0;
+		svt = distance / time;
+		return svt;
+	}
+	
+	public static double svtDistance(double velocity, double time) {
+		double svt = 0;
+		svt = velocity * time;
+		return svt;
+	}
+	
+	public static double svtTime(double distance, double velocity) {
+		double svt = 0;
+		svt = distance / velocity;
+		return svt;
+	}
+	
+	public static double work(double force, double distance) {
+		double work = 0;
+		work = force * distance;
+		return work;
+	}
+	
+	public static double power(double work, double time) {
+		double power = 0;
+		power = work / time;
+		return power;
+	}
+	
+	public static double heat(SolidTable solid, double mass, double deltaT) {
+		double heat = 0;
+		heat = solid.heatCapacity * mass * deltaT;
+		return heat;
 	}
 }
