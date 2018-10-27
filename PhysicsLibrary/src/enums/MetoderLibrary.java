@@ -128,4 +128,10 @@ public class MetoderLibrary
 		mass = volume * gas.density;
 		return mass;
 	}
+	
+	public static double volumeToMass(SolidTable solid, double volume) {
+		double mass = 0;
+		mass = volume * solid.density;
+		return mass;
+	}
 }
