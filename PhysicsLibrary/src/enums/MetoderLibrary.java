@@ -37,8 +37,8 @@ public class MetoderLibrary
 	/**
 	 * Tar in vätske densitet och djup och ger vätsketryck
 	 * @param fluid vätskan man ska få ut trycket från 
-	 * @param deep hur djupt ner man ska ta trycket från
-	 * @return skickar tillbaka vätsketryckets värde
+	 * @param deep (m) hur djupt ner man mäter trycket från
+	 * @return (Pa) skickar tillbaka vätsketryckets värde
 	 */
 	public static double fluidPressure(FluidTable fluid, double deep) {
 		double fluidPressure = 0;
@@ -48,8 +48,8 @@ public class MetoderLibrary
 	
 	/**
 	 * Tar in ett djup och skickar ut trycket i vatten
-	 * @param deep vilket djup det ska va
-	 * @return skickar tillbaka vätsketrycket 
+	 * @param deep (m) vilket djup det ska va
+	 * @return (Pa) skickar tillbaka vätsketrycket 
 	 */
 	public static double pressureUnderWater(double deep) {
 		double pressure = 0;
@@ -59,9 +59,9 @@ public class MetoderLibrary
 	
 	/**
 	 * Tar in massan och hastigheten och skickar ut kinetiskt energi värde
-	 * @param mass massan på objektet
-	 * @param velocity objektets hastighet
-	 * @return skickar tillbaka kinetiska energi värdet
+	 * @param mass (kg) massan på objektet
+	 * @param velocity (m/s) objektets hastighet
+	 * @return (J) skickar tillbaka kinetiska energi värdet
 	 */
 	public static double kineticEnergy(double mass, double velocity) 
 	{
