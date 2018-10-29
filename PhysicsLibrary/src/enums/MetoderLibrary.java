@@ -207,7 +207,7 @@ public class MetoderLibrary
 	 * en viss mängd grader (så mycket temperatur skillnaden är) 
 	 * @param solid Materialet
 	 * @param mass Massan
-	 * @param deltaT Temepratur skillnaden
+	 * @param deltaT Temperatur skillnaden
 	 * @return skickar tillbaka hur mycket energi som behövdes för att värma upp materialet.
 	 */
 	public static double heat(SolidTable solid, double mass, double deltaT) {
@@ -216,6 +216,15 @@ public class MetoderLibrary
 		return heat;
 	}
 	
+	/**
+	 * Tar in en vätska, dess volym och en temperatur skillnad och räknar
+	 * ut hur mycket energi som behövs för att 
+	 * värma upp vätskan temperatur skillnaden
+	 * @param fluid Vätskan
+	 * @param volume vätskans volym
+	 * @param deltaT temperatur skillnaden
+	 * @return skickar tillbaka hur mycket energi som behövs för att värma upp vätskan
+	 */
 	public static double heat(FluidTable fluid, double volume, double deltaT) {
 		double heat = 0;
 		double mass = 0;
@@ -224,6 +233,15 @@ public class MetoderLibrary
 		return heat;
 	}
 	
+	/**
+	 * Tar in en gas, dess volym och en temperatur skillnad och
+	 * räknar ut hur mycket energi som behövs för att
+	 * värma upp gasen tempeatur skillnaden
+	 * @param gas gasen
+	 * @param volume gasens volym
+	 * @param deltaT temperatur skillnaden
+	 * @return skickar tillbaka hur mycket enregi som behlvs för att värma upp gasen
+	 */
 	public static double heat(GasTable gas, double volume, double deltaT) {
 		double heat = 0;
 		double mass = 0;
