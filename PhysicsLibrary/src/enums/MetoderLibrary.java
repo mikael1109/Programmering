@@ -72,9 +72,9 @@ public class MetoderLibrary
 	
 	/**
 	 * Tar in massan och höjden och skickar ut potensiella energi värdet 
-	 * @param mass massan på objektet
-	 * @param height höjden på objektet
-	 * @return skickar tillbaka potensiella energi värdet
+	 * @param mass (kg) massan på objektet
+	 * @param height (m) höjden på objektet
+	 * @return (J) skickar tillbaka potensiella energi värdet
 	 */
 	public static double potentialEnergy(double mass, double height) {
 		double pe = 0;
@@ -84,8 +84,8 @@ public class MetoderLibrary
 	
 	/**
 	 * Tar in höjden och skicker ut fallhastighets värdet
-	 * @param height hur långt den faller
-	 * @return skickar tillbaka fallhastighets värdet
+	 * @param height (m) hur långt den faller
+	 * @return (m/s) skickar tillbaka fallhastighets värdet
 	 */
 	public static double fallSpeed(double height) {
 		double fs = 0;
@@ -108,8 +108,8 @@ public class MetoderLibrary
 	/**
 	 * Gör om volymen av en vätska till massan
 	 * @param fluid vätskan
-	 * @param volume volym värdet för vätskan
-	 * @return skickar tillbaka massa för vätskan
+	 * @param volume (dm^3) volym värdet för vätskan
+	 * @return (kg) skickar tillbaka massa för vätskan
 	 */
 	public static double volumeToMass(FluidTable fluid, double volume) {
 		double mass = 0;
@@ -120,8 +120,8 @@ public class MetoderLibrary
 	/**
 	 * Gör om volymen av en gas till massan
 	 * @param gas gasen
-	 * @param volume volym värdet för gasen
-	 * @return skickar tillbaka gasens massa
+	 * @param volume (dm^3) volym värdet för gasen
+	 * @return (kg) skickar tillbaka gasens massa
 	 */
 	public static double volumeToMass(GasTable gas, double volume) {
 		double mass = 0;
@@ -132,8 +132,8 @@ public class MetoderLibrary
 	/**
 	 * Gör om volymen av ett fast objekt till dess massa
 	 * @param solid fasta objektet
-	 * @param volume volym värdet för fasta objektet
-	 * @return skickar tillbaka fasta objektets massa
+	 * @param volume (dm^3) volym värdet för fasta objektet
+	 * @return (kg) skickar tillbaka fasta objektets massa
 	 */
 	public static double volumeToMass(SolidTable solid, double volume) {
 		double mass = 0;
@@ -143,9 +143,9 @@ public class MetoderLibrary
 	
 	/**
 	 * Tar in sträckan och tiden och räknar ut medelhastigheten
-	 * @param distance sträckan
-	 * @param time tiden
-	 * @return skickar tillbaka medelhastigheten
+	 * @param distance (m) sträckan
+	 * @param time (s) tiden
+	 * @return (m/s) skickar tillbaka medelhastigheten
 	 */
 	public static double svtVelocity(double distance, double time) {
 		double svt = 0;
@@ -155,9 +155,9 @@ public class MetoderLibrary
 	
 	/**
 	 * Tar in hastigheten och tiden och räknar ut sträckan
-	 * @param velocity hastigheten
-	 * @param time tiden
-	 * @return skickar tillbaka sträckan
+	 * @param velocity (m/s) hastigheten
+	 * @param time (s) tiden
+	 * @return (m) skickar tillbaka sträckan
 	 */
 	public static double svtDistance(double velocity, double time) {
 		double svt = 0;
@@ -167,9 +167,9 @@ public class MetoderLibrary
 	
 	/**
 	 * Tar in sträckan och hastigheten och räknar ut tiden
-	 * @param distance sträckan
-	 * @param velocity hastighetn
-	 * @return skickar tillbaka tiden
+	 * @param distance (m) sträckan
+	 * @param velocity (m/s) hastighetn
+	 * @return (s) skickar tillbaka tiden
 	 */
 	public static double svtTime(double distance, double velocity) {
 		double svt = 0;
@@ -179,9 +179,9 @@ public class MetoderLibrary
 	
 	/**
 	 * Tar in kraften och sträckan och räknar ut arbetet
-	 * @param force kraften
-	 * @param distance sträckan 
-	 * @return skickar tillbaka arbetet
+	 * @param (N) force kraften
+	 * @param (m) distance sträckan 
+	 * @return (J) skickar tillbaka arbetet
 	 */
 	public static double work(double force, double distance) {
 		double work = 0;
@@ -191,9 +191,9 @@ public class MetoderLibrary
 	
 	/**
 	 * Tar in arbetet och tiden och räknar ut effekten
-	 * @param work arbetet
-	 * @param time tiden
-	 * @return skickar tillbaka effekten
+	 * @param (J) work arbetet
+	 * @param (s) time tiden
+	 * @return (W) skickar tillbaka effekten
 	 */
 	public static double power(double work, double time) {
 		double power = 0;
@@ -206,9 +206,9 @@ public class MetoderLibrary
 	 * räknar ut hur mycket energi som behövs för att värma materialet
 	 * en viss mängd grader (så mycket temperatur skillnaden är) 
 	 * @param solid Materialet
-	 * @param mass Massan
+	 * @param (kg) mass Massan
 	 * @param deltaT Temperatur skillnaden
-	 * @return skickar tillbaka hur mycket energi som behövdes för att värma upp materialet.
+	 * @return (J) skickar tillbaka hur mycket energi som behövdes för att värma upp materialet.
 	 */
 	public static double heat(SolidTable solid, double mass, double deltaT) {
 		double heat = 0;
@@ -221,9 +221,9 @@ public class MetoderLibrary
 	 * ut hur mycket energi som behövs för att 
 	 * värma upp vätskan temperatur skillnaden
 	 * @param fluid Vätskan
-	 * @param volume vätskans volym
+	 * @param volume (dm^3) vätskans volym
 	 * @param deltaT temperatur skillnaden
-	 * @return skickar tillbaka hur mycket energi som behövs för att värma upp vätskan
+	 * @return (J) skickar tillbaka hur mycket energi som behövs för att värma upp vätskan
 	 */
 	public static double heat(FluidTable fluid, double volume, double deltaT) {
 		double heat = 0;
@@ -238,9 +238,9 @@ public class MetoderLibrary
 	 * räknar ut hur mycket energi som behövs för att
 	 * värma upp gasen tempeatur skillnaden
 	 * @param gas gasen
-	 * @param volume gasens volym
+	 * @param volume (dm^3) gasens volym
 	 * @param deltaT temperatur skillnaden
-	 * @return skickar tillbaka hur mycket enregi som behlvs för att värma upp gasen
+	 * @return (J) skickar tillbaka hur mycket enregi som behlvs för att värma upp gasen
 	 */
 	public static double heat(GasTable gas, double volume, double deltaT) {
 		double heat = 0;
@@ -252,8 +252,8 @@ public class MetoderLibrary
 	
 	/**
 	 * Tar in hastighet och räknar ut hur högt uppåt ett föremål kommer. 
-	 * @param velocity hastigheten
-	 * @return skickar tillbaka hur högt föremålet kommer
+	 * @param velocity (m/s) hastigheten
+	 * @return (m) skickar tillbaka hur högt föremålet kommer
 	 */
 	public static double velocityToHeight(double velocity) {
 		velocity = velocity / 2;
