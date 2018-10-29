@@ -141,36 +141,75 @@ public class MetoderLibrary
 		return mass;
 	}
 	
+	/**
+	 * Tar in sträckan och tiden och räknar ut medelhastigheten
+	 * @param distance sträckan
+	 * @param time tiden
+	 * @return skickar tillbaka medelhastigheten
+	 */
 	public static double svtVelocity(double distance, double time) {
 		double svt = 0;
 		svt = distance / time;
 		return svt;
 	}
 	
+	/**
+	 * Tar in hastigheten och tiden och räknar ut sträckan
+	 * @param velocity hastigheten
+	 * @param time tiden
+	 * @return skickar tillbaka sträckan
+	 */
 	public static double svtDistance(double velocity, double time) {
 		double svt = 0;
 		svt = velocity * time;
 		return svt;
 	}
 	
+	/**
+	 * Tar in sträckan och hastigheten och räknar ut tiden
+	 * @param distance sträckan
+	 * @param velocity hastighetn
+	 * @return skickar tillbaka tiden
+	 */
 	public static double svtTime(double distance, double velocity) {
 		double svt = 0;
 		svt = distance / velocity;
 		return svt;
 	}
 	
+	/**
+	 * Tar in kraften och sträckan och räknar ut arbetet
+	 * @param force kraften
+	 * @param distance sträckan 
+	 * @return skickar tillbaka arbetet
+	 */
 	public static double work(double force, double distance) {
 		double work = 0;
 		work = force * distance;
 		return work;
 	}
 	
+	/**
+	 * Tar in arbetet och tiden och räknar ut effekten
+	 * @param work arbetet
+	 * @param time tiden
+	 * @return skickar tillbaka effekten
+	 */
 	public static double power(double work, double time) {
 		double power = 0;
 		power = work / time;
 		return power;
 	}
 	
+	/**
+	 * Tar in ett material, dess massa och en temperatur skillnad och 
+	 * räknar ut hur mycket energi som behövs för att värma materialet
+	 * en viss mängd grader (så mycket temperatur skillnaden är) 
+	 * @param solid Materialet
+	 * @param mass Massan
+	 * @param deltaT Temepratur skillnaden
+	 * @return skickar tillbaka hur mycket energi som behövdes för att värma upp materialet.
+	 */
 	public static double heat(SolidTable solid, double mass, double deltaT) {
 		double heat = 0;
 		heat = solid.heatCapacity * mass * deltaT;
