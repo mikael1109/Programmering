@@ -250,6 +250,11 @@ public class MetoderLibrary
 		return heat;
 	}
 	
+	/**
+	 * Tar in hastighet och räknar ut hur högt uppåt ett föremål kommer. 
+	 * @param velocity hastigheten
+	 * @return skickar tillbaka hur högt föremålet kommer
+	 */
 	public static double velocityToHeight(double velocity) {
 		velocity = velocity / 2;
 		return velocity;
