@@ -259,4 +259,42 @@ public class MetoderLibrary
 		velocity = velocity / 2;
 		return velocity;
 	}
+	
+	/**
+	 * Tar in hastigheten och tiden och räknar ut accelerationen
+	 * @param (m/s) velocity hastigheten
+	 * @param (s) time tiden
+	 * @return (m/s^2) skickar tillbaka accelerationen
+	 */
+	public static double acceleration(double velocity, double time) {
+		double acceleration = 0;
+		acceleration = velocity / time;
+		return acceleration;
+	}
+	
+	/**
+	 * Tar in accelerationen och massan på ett föremål räknar ut kraften
+	 * @param mass (kg) massa
+	 * @param acceleration (m/s^2) accelerationen
+	 * @return (N) skickar tillbaka kraften på föremålet
+	 */
+	public static double force(double mass, double acceleration) {
+		double force = 0;
+		force = mass * acceleration;
+		return force;
+	}
+	
+	/**
+	 * Tar in a längden och b längden på en triangel och räknar ut c längden
+	 * @param a a längden
+	 * @param b b längden
+	 * @return skickar tillbaka c längden av triangeln
+	 */
+	public static double pythagoras(double a, double b) {
+		double pytha = 0;
+		a = Math.pow(a, 2);
+		b = Math.pow(b, 2);
+		pytha = Math.sqrt(a + b);
+		return pytha;
+	}
 }
