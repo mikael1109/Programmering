@@ -1,6 +1,8 @@
 
 public class Uppgift4 {
 
+	//Skriv ett program som beräknar
+	//summan av alla tal under 10 000 som är jämnt delbara med 7. 
 	public static void main(String[] args) 
 	{
 		int tal = 0;

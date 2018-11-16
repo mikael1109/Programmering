@@ -1,6 +1,9 @@
 import java.util.Scanner;
 public class Uppgift2 {
 
+	//Skapa ett program som läser in textrader
+	//från konsolen och avslutas när texten EXIT skrivs in.
+	
 	public static void main(String[] args) 
 	{
 		boolean close = false;

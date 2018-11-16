@@ -1,6 +1,8 @@
 import java.util.Scanner;
 public class Uppgift6 {
 
+	//Skapa ett program som skriver ut en pyramid efter 
+	//att användaren matat in antal rader pyramidens bas ska vara.
 	public static void main(String[] args) 
 	{
 		int steps = 0;

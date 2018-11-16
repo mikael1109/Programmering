@@ -1,8 +1,12 @@
 import java.util.Scanner;
 public class Uppgift1 {
 
+	//Skapa ett program som läser in tal från konsolen 
+	//och när man skriver in talet 0 ska den skriva ut summan av alla tal.
+	
 	public static void main(String[] args) 
 	{
+		
 		int tal = 0;
 		int nyttal = 0;
 		boolean exit = false;
