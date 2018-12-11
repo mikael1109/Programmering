@@ -6,6 +6,10 @@ public class TomCount {
 
 	}
 	
+	/**
+	 * Kollar namn listan och kollar hur många gånger Tom är med
+	 * @return skickar tillbaka hur många gånger Tom förekommer
+	 */
 	public static int tomCount() {
 		int nameCount = 0;
 		for (int i = 0; i < List.names.length; i++) {

@@ -6,6 +6,10 @@ public class NumberSum {
 
 	}
 	
+	/**
+	 * Kollar nummer listan och kollar hur många tal är jämna och summerar sen dem
+	 * @return skickar tillbaka summan av alla jämna tal
+	 */
 	public static int sum() {
 		int sum = 0;
 		for (int i = 0; i < List.numbers.length; i++) {

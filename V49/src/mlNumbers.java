@@ -6,6 +6,10 @@ public class mlNumbers {
 
 	}
 	
+	/**
+	 * Kollar nummer listan och ser vilket nummer som förekommer mest respektive minst
+	 * @return skickar tillbaka vilket nummer som förekommer mest och minst
+	 */
 	public static int[] mlNumbers () {
 		int[] list = new int[10];
 		int[] ml = new int[4];

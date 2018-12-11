@@ -1,11 +1,15 @@
 
 public class mlNames {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public static void main(String[] args) 
+	{
+		System.out.println(mlNames() + " förekommer mest i namn listan");
 	}
 	
+	/**
+	 * Kollar namn listan och ser vilket namn förekommer mest
+	 * @return skickar tillbaka namnet som förekommer mest
+	 */
     private static String mlNames() {
         int mName = 0;
         int big = 0;

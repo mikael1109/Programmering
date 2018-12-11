@@ -6,6 +6,10 @@ public class eachNames {
 
 	}
 	
+	/**
+	 * Kollar genom namn listan och skickar tillbaka alla unika namn
+	 * @return skickar tillbaka alla unika namn
+	 */
     public static int eNames() {
         int result = 0;
         int y;
