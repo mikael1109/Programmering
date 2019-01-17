@@ -3,13 +3,20 @@ import java.util.Scanner;
 public class SwitchCase {
 
 	public static void main(String[] args) {
-		boolean check = false;
+		boolean check = true;
 		Scanner input = new Scanner(System.in);
 		square();
 		System.out.println("Welcome to the labyrinth, Where would you like to go?");
 		System.out.println("1 : Up");
 		int choice = input.nextInt();
-
+		while(check) {
+			if(choice > 0 && choice < 2) {
+				check = false;
+			}else {
+				System.out.println("Please enter an valid number");
+				choice = input.nextInt();
+			}
+		}
 		switch(choice) {
 		case 1:
 			fourExit();
@@ -17,7 +24,12 @@ public class SwitchCase {
 			choice = input.nextInt();
 			check = true;
 			while(check) {
-				
+				if(choice > 0 && choice < 4) {
+					check = false;
+				}else {
+					System.out.println("Please enter an valid number");
+					choice = input.nextInt();
+				}
 			}
 			switch(choice) {
 			case 1:
@@ -29,6 +41,15 @@ public class SwitchCase {
 				twoExit();
 				System.out.println("1 : Up");
 				choice = input.nextInt();
+				check = true;
+				while(check) {
+					if(choice > 0 && choice < 2) {
+						check = false;
+					}else {
+						System.out.println("Please enter an valid number");
+						choice = input.nextInt();
+					}
+				}
 				switch(choice) {
 				case 1:
 					System.out.println("There apears to be a tiger in the room");
@@ -42,6 +63,15 @@ public class SwitchCase {
 				threeExit();
 				System.out.println("1 : Up  2 : Down");
 				choice = input.nextInt();
+				check = true;
+				while(check) {
+					if(choice > 0 && choice < 3) {
+						check = false;
+					}else {
+						System.out.println("Please enter an valid number");
+						choice = input.nextInt();
+					}
+				}
 				switch(choice) {
 				case 1:
 					System.out.println("The room is flooded with water and you drown~");
@@ -52,16 +82,43 @@ public class SwitchCase {
 					twoExitSec();
 					System.out.println("1 : Right");
 					choice = input.nextInt();
+					check = true;
+					while(check) {
+						if(choice > 0 && choice < 2) {
+							check = false;
+						}else {
+							System.out.println("Please enter an valid number");
+							choice = input.nextInt();
+						}
+					}
 					switch(choice) {
 					case 1:
 						threeExitSec();
 						System.out.println("1 : Up  2 : Right");
 						choice = input.nextInt();
+						check = true;
+						while(check) {
+							if(choice > 0 && choice < 3) {
+								check = false;
+							}else {
+								System.out.println("Please enter an valid number");
+								choice = input.nextInt();
+							}
+						}
 						switch(choice) {
 						case 1:
 							threeExitTri();
 							System.out.println("1 : Up  2 : Right");
 							choice = input.nextInt();
+							check = true;
+							while(check) {
+								if(choice > 0 && choice < 3) {
+									check = false;
+								}else {
+									System.out.println("Please enter an valid number");
+									choice = input.nextInt();
+								}
+							}
 							switch(choice) {
 							case 1:
 								System.out.println("There apears to be a tiger in the room");
@@ -73,11 +130,29 @@ public class SwitchCase {
 								threeExitSec();
 								System.out.println("1 : Up  2 : Right");
 								choice = input.nextInt();
+								check = true;
+								while(check) {
+									if(choice > 0 && choice < 3) {
+										check = false;
+									}else {
+										System.out.println("Please enter an valid number");
+										choice = input.nextInt();
+									}
+								}
 								switch(choice) {
 								case 1:
 									twoExit();
 									System.out.println("1 : Up");
 									choice = input.nextInt();
+									check = true;
+									while(check) {
+										if(choice > 0 && choice < 2) {
+											check = false;
+										}else {
+											System.out.println("Please enter an valid number");
+											choice = input.nextInt();
+										}
+									}
 									switch(choice) {
 									case 1:
 										trophy();
