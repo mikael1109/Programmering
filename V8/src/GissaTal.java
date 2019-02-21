@@ -34,7 +34,7 @@ public class GissaTal {
 			if (tal == guess) {
 				System.out.println("Nu fick du allt till det, bra jobbat");
 				gissat = true;
-			} else if (guess - tal <= 5 && guess - tal >= -5) {
+			} else if (guess - tal <= 3 && guess - tal >= -3) {
 				System.out.println("Nu va det riktigt nära gubben");
 			} else if (guess < tal) {
 				System.out.println("Talet är fan större brysh");
@@ -58,7 +58,7 @@ public class GissaTal {
 	public static void restart() {
 		System.out.println("Vill du köra igen. 1: Ja  2: Nej");
 		guess = sc.nextInt();
-		while (guess != 1 && guess != 2) {
+		do {
 			if (guess == 1) {
 				gissat = false;
 				range();
@@ -69,7 +69,7 @@ public class GissaTal {
 				System.out.println("Ogiltlig nummer 1: Ja  2: Nej");
 				guess = sc.nextInt();
 			}
-		}
+		}while((guess != 1 && guess != 2));
 	}
 
 }
