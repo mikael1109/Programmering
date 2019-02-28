@@ -10,7 +10,6 @@ public class GissaTal {
 	static boolean exit = false;
 	static boolean gissat = false;
 	static Scanner sc = new Scanner(System.in); // Startar scanner
-	
 
 	public static void main(String[] args) {
 		range();
@@ -33,8 +32,8 @@ public class GissaTal {
 	}
 
 	/**
-	 * Låter använderen gissa och kollar om gissning var korrekt, ifall inte så skriver den repsektive
-	 * större, mindre eller nära om det var 3 ifrån.
+	 * Låter använderen gissa och kollar om gissning var korrekt, ifall inte så
+	 * skriver den repsektive större, mindre eller nära om det var 3 ifrån.
 	 */
 	public static void guess() {
 		while (!gissat) {
@@ -68,8 +67,8 @@ public class GissaTal {
 	}
 
 	/**
-	 * Kollar om användaren vill köra igen, ifall ja så startar den en ny runda (range() ) annars
-	 * skriver den ut ett meddelande och stänger av programmet.
+	 * Kollar om användaren vill köra igen, ifall ja så startar den en ny runda
+	 * (range() ) annars skriver den ut ett meddelande och stänger av programmet.
 	 */
 	public static void restart() {
 		System.out.println("Vill du köra igen. ja/nej");
@@ -85,7 +84,7 @@ public class GissaTal {
 				System.out.println("Ogiltlig svar; ja/nej");
 				restart = sc.next();
 			}
-		}while(gissat && !exit);
+		} while (gissat && !exit);
 	}
 
 }
