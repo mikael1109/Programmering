@@ -53,7 +53,8 @@ public class GissaTal {
 	}
 
 	/**
-	 * Skriver ut ett meddelande baserat på hur många gånger man har gissat
+	 * Skriver ut ett meddelande baserat på hur många gånger man har gissat sen
+	 * återställer count till 0
 	 */
 	public static void countRank() {
 		if (count <= 5) {
