@@ -12,6 +12,8 @@ public class Hangman {
 	static int Health = 7;
 	static String[] Words = {"BANANA", "APPLE", "CLOWN", "RABBIT", "HORSE", "HAM", "BUNNY", "ORANGE", "APPLESAUCE","SOCKERBALL"};
 	static ArrayList<Integer> unlockedChars = new ArrayList<Integer>();
+	static ArrayList<String> wrongList = new ArrayList<>();
+	static ArrayList<Character> wrongListChar = new ArrayList<>();
 	
 	public static void main(String[] args) {
 		start();
@@ -69,7 +71,6 @@ public class Hangman {
 		if(guessString.equals(SecretWord)) {
 			winMenu();
 		}else if(!guessString.equals(SecretWord)){
-			guessString = "";
 			Health = Health - 1;
 			hangmanGraphic();
 		}
@@ -83,7 +84,6 @@ public class Hangman {
 				count++;
 			}
 		}
-		guessChar = ' ';
 		if(count == 0) {
 			Health = Health - 1;
 			hangmanGraphic();
@@ -153,7 +153,13 @@ public class Hangman {
 			if(unlockedChars.contains(i)) {
 				charCount++;
 				hcw.print(SecretWord.charAt(i) + "");
-			}else {
+			}else if(!wrongList.contains(guessString) && guessString != null){
+				wrongList.add(guessString);
+				hcw.print("-");
+			}else if(!wrongListChar.contains(guessChar) && guessChar != '\0'){
+				wrongListChar.add(guessChar);
+				hcw.print("-");
+			}else{
 				hcw.print("-");
 			}
 		}
@@ -165,7 +171,12 @@ public class Hangman {
 		hcw.println();	
 		hcw.println("Lives: " + Health);
 		hcw.println();
+		hcw.println(wrongList.toString());
+		hcw.println(wrongListChar.toString());
+		hcw.println();
 		hcw.print("Your guess: ");
+		guessChar = ' ';
+		guessString = "";
 		guess();
 	}
 	
@@ -228,7 +239,7 @@ public class Hangman {
 	}
 	
 	public static void hang3() {
-		hcw.println("  | ");
+		hcw.println("  / ");
 		hcw.println("  | ");
 		hcw.println("  | ");
 		hcw.println(" _|_ ");
@@ -236,7 +247,7 @@ public class Hangman {
 	}
 	
 	public static void hang4() {
-		hcw.println("  |----- ");
+		hcw.println("  /----- ");
 		hcw.println("  | ");
 		hcw.println("  | ");
 		hcw.println(" _|_ ");
@@ -244,7 +255,7 @@ public class Hangman {
 	}
 	
 	public static void hang5() {
-		hcw.println("  |----- ");
+		hcw.println("  /----- ");
 		hcw.println("  |    O");
 		hcw.println("  | ");
 		hcw.println(" _|_ ");
@@ -252,7 +263,7 @@ public class Hangman {
 	}
 	
 	public static void hang6() {
-		hcw.println("  |----- ");
+		hcw.println("  /----- ");
 		hcw.println("  |    O");
 		hcw.println("  |    |");
 		hcw.println(" _|_ ");
@@ -260,7 +271,7 @@ public class Hangman {
 	}
 	
 	public static void hang7() {
-		hcw.println("  |----- ");
+		hcw.println("  /----- ");
 		hcw.println("  |    O");
 		hcw.println("  |   /|>");
 		hcw.println(" _|_ ");
@@ -268,7 +279,7 @@ public class Hangman {
 	}
 	
 	public static void hang8() {
-		hcw.println("  |----- ");
+		hcw.println("  /----- ");
 		hcw.println("  |    O");
 		hcw.println("  |   /|>");
 		hcw.println(" _|_  /´L");
