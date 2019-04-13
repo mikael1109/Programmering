@@ -6,10 +6,10 @@ import hangman.HangmanConsoleWindow;
 public class Hangman {
 
 	static HangmanConsoleWindow hcw = new HangmanConsoleWindow();
-	static String SecretWord;
+	static String secretWord;
 	static char guessChar;
 	static String guessString;
-	static int Health = 7;
+	static int health = 7;
 	static String[] Words = {"BANANA", "APPLE", "CLOWN", "RABBIT", "HORSE", "HAM", "BUNNY", "ORANGE", "APPLESAUCE","SOCKERBALL"};
 	static ArrayList<Integer> unlockedChars = new ArrayList<Integer>();
 	static ArrayList<String> wrongList = new ArrayList<>();
@@ -43,15 +43,15 @@ public class Hangman {
 	public static void egetOrd() {
 		hcw.println("Please write your word!");
 		do {
-		SecretWord = hcw.nextString().toUpperCase();
-		}while(numberCheck(SecretWord));
+		secretWord = hcw.nextString().toUpperCase();
+		}while(numberCheck(secretWord));
 		hangmanGraphic();
 	}
 	
 	public static void slumpat() {
 		int rNumber = 0;
-		rNumber = (int) (Math.random() * Words.length);
-		SecretWord = Words[rNumber];
+		rNumber = (int) (Math.random() * Words.length) + 1;
+		secretWord = Words[rNumber - 1];
 		hangmanGraphic();
 	}
 	
@@ -68,24 +68,24 @@ public class Hangman {
 	}
 	
 	public static void guessStringCheck() {
-		if(guessString.equals(SecretWord)) {
+		if(guessString.equals(secretWord)) {
 			winMenu();
-		}else if(!guessString.equals(SecretWord)){
-			Health = Health - 1;
+		}else if(!guessString.equals(secretWord)){
+			health = health - 1;
 			hangmanGraphic();
 		}
 	}
 	
 	public static void guessCharCheck() {
 		int count = 0;
-		for (int i = 0; i < SecretWord.length(); i++) {
-			if (guessChar == SecretWord.charAt(i)) {
+		for (int i = 0; i < secretWord.length(); i++) {
+			if (guessChar == secretWord.charAt(i)) {
 				unlockedChars.add(i);
 				count++;
 			}
 		}
 		if(count == 0) {
-			Health = Health - 1;
+			health = health - 1;
 			hangmanGraphic();
 		}else {
 			hangmanGraphic();
@@ -130,54 +130,71 @@ public class Hangman {
 	public static void hangmanGraphic() {
 		int charCount = 0;
 		hcw.clear();
-		if (Health == 7) {
+		if (health == 7) {
 			hang1();
-		}else if(Health == 6) {
+		}else if(health == 6) {
 			hang2();
-		}else if(Health == 5) {
+		}else if(health == 5) {
 			hang3();
-		}else if(Health == 4) {
+		}else if(health == 4) {
 			hang4();
-		}else if(Health == 3) {
+		}else if(health == 3) {
 			hang5();
-		}else if(Health == 2) {
+		}else if(health == 2) {
 			hang6();
-		}else if(Health == 1) {
+		}else if(health == 1) {
 			hang7();
-		}else if(Health == 0) {
+		}else if(health == 0) {
 			loseMenu();
 			return;
 		}
 		hcw.println(); hcw.println();
-		for (int i = 0; i < SecretWord.length(); i++) {
+		for (int i = 0; i < secretWord.length(); i++) {
 			if(unlockedChars.contains(i)) {
 				charCount++;
-				hcw.print(SecretWord.charAt(i) + "");
+				hcw.print(secretWord.charAt(i) + "");
 			}else if(!wrongList.contains(guessString) && guessString != null){
 				wrongList.add(guessString);
 				hcw.print("-");
-			}else if(!wrongListChar.contains(guessChar) && guessChar != '\0'){
+			}else if(!wrongListChar.contains(guessChar) && guessChar != '\0' && !charInWord(guessChar)){
 				wrongListChar.add(guessChar);
 				hcw.print("-");
 			}else{
 				hcw.print("-");
 			}
 		}
-		if(charCount == SecretWord.length()) {
+		if(charCount == secretWord.length()) {
 			winMenu();
 			return;
 		}
 		hcw.println();
 		hcw.println();	
-		hcw.println("Lives: " + Health);
+		hcw.println("Lives: " + health);
 		hcw.println();
-		hcw.println(wrongList.toString());
-		hcw.println(wrongListChar.toString());
+		if(wrongList.size() == 0) {
+			hcw.println();
+		}else {
+			hcw.println(wrongList.toString());
+		}
+		if(wrongListChar.size() == 0) {
+			hcw.println();
+		}else {
+			hcw.println(wrongListChar.toString());
+		}
 		hcw.println();
 		hcw.print("Your guess: ");
-		guessChar = ' ';
-		guessString = "";
+		guessChar = '\0';
+		guessString = null;
 		guess();
+	}
+	
+	public static boolean charInWord(char c) {
+		for(int i = 0; i < secretWord.length(); i++) {
+			if(c == secretWord.charAt(i)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	
@@ -185,20 +202,21 @@ public class Hangman {
 		hcw.clear();
 		hang8();
 		hcw.println("You lost, maybe try harder next time");
+		hcw.println("The word was: " + secretWord);
 		restartCheck();
 	}
 	
 	public static void winMenu(){
 		hcw.clear();
 		hcw.println("Congratulations you won");
-		if(Health == 7) {
+		if(health == 7) {
 			hcw.println("You didn't lose any lives");
-		}else if (Health == 6){
+		}else if (health == 6){
 			hcw.println("You only lost 1 life");
 		}else {
-			hcw.println("You only lost " + (7 - Health) + " lives");
+			hcw.println("You only lost " + (7 - health) + " lives");
 		}
-		hcw.println("The word was: " + SecretWord);
+		hcw.println("The word was: " + secretWord);
 		restartCheck();
 	}
 	
@@ -213,9 +231,13 @@ public class Hangman {
 		}while(!choiceCheck(choice));
 		choiceInt = Integer.parseInt(choice);
 		if(choiceInt == 1) {
-			Health = 7;
-			SecretWord = "";
+			health = 7;
+			secretWord = "";
 			unlockedChars.clear();
+			wrongList.clear();
+			wrongListChar.clear();
+			guessChar = '\0';
+			guessString = "";
 			start();
 		}else {
 			hcw.exit();
