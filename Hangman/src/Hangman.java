@@ -5,7 +5,7 @@ import hangman.HangmanConsoleWindow;
 
 public class Hangman {
 
-	static HangmanConsoleWindow hcw = new HangmanConsoleWindow(); // Kallar på HangmanConsoleWindow
+	static HangmanConsoleWindow hcw = new HangmanConsoleWindow(); // Skapar en HangmanConsoleWindow
 	static String secretWord; // Hemliga ordet
 	static char guessChar; // Char gissningen
 	static String guessString; // String gissningen
@@ -15,7 +15,7 @@ public class Hangman {
 			"CROISSANT", "WITCH", "TREASURE", "HIDDEN", "PINEAPPLE", "STRENGTH", "ELECTRONIC", "NEGATIVE", "PARTICULAR",
 			"POSSESSED", "RAZORBLADE" }; // ord listan
 	static ArrayList<Integer> unlockedChars = new ArrayList<Integer>(); // Int lista som representerar bokstäver man har
-																		// löst upp
+																		// gissat rätt på
 	static ArrayList<String> wrongList = new ArrayList<>(); // Ord som har blivit gissade men inte är rätt.
 	static ArrayList<Character> wrongListChar = new ArrayList<>(); // Bokstäver som har blivit gissade men inte är med i
 																	// ordet
@@ -113,7 +113,7 @@ public class Hangman {
 
 	/**
 	 * Skapar en int count och kollar ifall char gissningen finns med i ordet ifall
-	 * den gör det lägger den plattsen på ordet den finns med på unlockedChars
+	 * den gör det lägger den plattsen på ordet den finns med på unlockedChars och
 	 * plussar på count. ifall count är lika med noll när for loopen är klar så tar
 	 * den bort ett liv och kallar på hangmanGraphic annars så kallar den bara den
 	 * på hangmanGraphic
@@ -137,7 +137,8 @@ public class Hangman {
 	/**
 	 * Kollar ifall s är en char genom att kolla ifall den har mer än 1 bokstav
 	 * 
-	 * @param s Stringen som ska kollas ifall den är en char
+	 * @param s
+	 *            Stringen som ska kollas ifall den är en char
 	 * 
 	 * @return skickar tillbaka true om det är en char
 	 */
@@ -149,6 +150,13 @@ public class Hangman {
 		}
 	}
 
+	/**
+	 * Kollar så att stringen s är ett nummer och är antigen 1 och 2.
+	 * 
+	 * @param s
+	 *            stringen som ska kollas
+	 * @return skickar tillbaka sant om stringen är antigen 1 eller 2 annars false.
+	 */
 	public static boolean choiceCheck(String s) {
 		try {
 			Integer.parseInt(s);
@@ -164,6 +172,14 @@ public class Hangman {
 		}
 	}
 
+	/**
+	 * kollar så att stringen s inte innehåller nåt av arraylisten numbers.
+	 * 
+	 * @param s
+	 *            stringen som ska kollas.
+	 * @return skickar tillbaka sant om stringen innehåller nåt av arraylistan
+	 *         annars false.
+	 */
 	public static boolean numberCheck(String s) {
 		ArrayList<Character> numbers = new ArrayList<Character>(
 				Arrays.asList('1', '2', '3', '4', '5', '6', '7', '8', '9', '0', ',', '.', ';', ':'));
@@ -177,9 +193,13 @@ public class Hangman {
 		return false;
 	}
 
+	/**
+	 * Börjar med cleara skärmen sätter sedan charCount till 0, skriver sedan ut
+	 * hangman gubben beroende på hur mycket liv man har.
+	 */
 	public static void hangmanGraphic() {
-		int charCount = 0;
 		hcw.clear();
+		int charCount = 0;
 		if (health == 7) {
 			hang1();
 		} else if (health == 6) {
@@ -201,44 +221,73 @@ public class Hangman {
 		hcw.println();
 		hcw.println();
 		for (int i = 0; i < secretWord.length(); i++) {
-			if (unlockedChars.contains(i)) {
+			if (unlockedChars.contains(i)) { // Kollar ifall plattsen på secretWord(i) finns med i unlockedChars, ifall
+												// den
+												// gör det så skriver den ut char:en vid i och lägger till en på
+												// charCount.
 				charCount++;
 				hcw.print(secretWord.charAt(i) + "");
-			} else if (!wrongList.contains(guessString) && guessString != null) {
+			} else if (!wrongList.contains(guessString) && guessString != null) { // Kollar ifall inte wrongList
+																					// innehåller gissningen och
+																					// gissningen inte är tom så lägger
+																					// den till gissningen i wrongList.
 				wrongList.add(guessString);
 				hcw.print("-");
-			} else if (!wrongListChar.contains(guessChar) && guessChar != '\0' && !charInWord(guessChar)) {
+			} else if (!wrongListChar.contains(guessChar) && guessChar != '\0' && !charInWord(guessChar)) { // Kollar så
+																											// wrongListChar
+																											// inte
+																											// innehåller
+																											// gissningen(char)
+																											// och så
+																											// att
+																											// gisnningen(char)
+																											// inte är
+																											// null och
+																											// kollar så
+																											// att
+																											// charInWord()
+																											// är false.
 				wrongListChar.add(guessChar);
 				hcw.print("-");
 			} else {
 				hcw.print("-");
 			}
 		}
-		if (charCount == secretWord.length()) {
+		if (charCount == secretWord.length()) { // Kolllar ifall charCount är samma som längden av secretWord ifall ja
+												// så går kallar den på winMenu och går ut funktionen.
 			winMenu();
 			return;
 		}
 		hcw.println();
 		hcw.println();
-		hcw.println("Lives: " + health);
+		hcw.println("Lives: " + health); // Skriver ut spelarens liv.
 		hcw.println();
-		if (wrongList.size() == 0) {
+		if (wrongList.size() == 0) { // Kollar ifall wrongList är tom, ifall ja så skriver den ut en tom rad annars
+										// skriver den ut wrongList.
 			hcw.println();
 		} else {
 			hcw.println(wrongList.toString());
 		}
-		if (wrongListChar.size() == 0) {
+		if (wrongListChar.size() == 0) { // Kollar ifall wrongListChar är, ifall ja så skriver den ut en tom rad annars
+											// skriver den ut wrongListChar.
 			hcw.println();
 		} else {
 			hcw.println(wrongListChar.toString());
 		}
 		hcw.println();
 		hcw.print("Your guess: ");
-		guessChar = '\0';
-		guessString = null;
-		guess();
+		guessChar = '\0'; // Sätter guessChar till null.
+		guessString = null; // Sätter guessString till null.
+		guess(); // Kallar på guess()
 	}
 
+	/**
+	 * Kollar ifall char c finns med i secretWord.
+	 * 
+	 * @param c
+	 *            char:en som ska kollas.
+	 * @return skickar tillbaka true ifall c finns med i ordet annars false.
+	 */
 	public static boolean charInWord(char c) {
 		for (int i = 0; i < secretWord.length(); i++) {
 			if (c == secretWord.charAt(i)) {
@@ -248,6 +297,10 @@ public class Hangman {
 		return false;
 	}
 
+	/**
+	 * Clearar fönstret, skriver ut hangman gubbens sista nivå och förlöst
+	 * meddelandet och kallar sen på restartCheck().
+	 */
 	public static void loseMenu() {
 		hcw.clear();
 		hang8();
@@ -256,6 +309,10 @@ public class Hangman {
 		restartCheck();
 	}
 
+	/**
+	 * Clearar fönstret, skriver ut vinst meddelande beronde på hur många liv
+	 * spelaren har kvar och kallar sen på restartCheck().
+	 */
 	public static void winMenu() {
 		hcw.clear();
 		hcw.println("Congratulations you won");
@@ -270,6 +327,13 @@ public class Hangman {
 		restartCheck();
 	}
 
+	/**
+	 * Frågar ifall spelaren vill spela igen, sätter choice till nästa string,
+	 * kollar ifall choiceCheck() är false ifall ja så fortsätter den annars
+	 * fortsätter den sätta choice till nästa string. Sätter choiceInt till choice
+	 * omgjord till int. ifall choiceInt är 1 så startar den ett nytt spell annars
+	 * stänger den av programmet.
+	 */
 	public static void restartCheck() {
 		hcw.println();
 		hcw.println("Do you want to play again?");
