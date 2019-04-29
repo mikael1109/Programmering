@@ -29,7 +29,11 @@ public class Hangman {
 
 	/**
 	 * Clearar skärmen, Skriver ut ett start meddelande och kollar ifall man vill
-	 * välja eget ord eller få ett slumpat. Clearar skärmen efter.
+	 * välja eget ord eller få ett slumpat. Sätter choice till nästa string och
+	 * kollar ifall choiceCheck() är false ifall ja så går den vidare annars
+	 * fortsätter den sätta choice till nästa string. Sätter choiceInt till choice
+	 * omgjord till en int. Kallar på egetOrd() om choiceInt är 1 och slumpat()
+	 * ifall choiceInt är 2.
 	 */
 	public static void start() {
 		hcw.clear();
@@ -53,8 +57,8 @@ public class Hangman {
 	}
 
 	/**
-	 * Ber användaren skriva in ett ord, låter inte användaren inte skriva ett ord
-	 * med nummer eller speciella tecken.
+	 * Ber användaren skriva in ett ord, kollar ifall numberCheck() är true annars
+	 * så fortsätter den fråga. Kallar sen på hangmanGraphic().
 	 */
 	public static void egetOrd() {
 		hcw.println("Please write your word!");
