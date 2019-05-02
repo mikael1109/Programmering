@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import hangman.HangmanConsoleWindow;
 
 public class Hangman {
@@ -104,7 +103,7 @@ public class Hangman {
 
 	/**
 	 * Kollar ifall gissning stämmer med ordet ifall den gör det kallar den på
-	 * winMenu, så tar den bort ett liv och sen kallar på hangmanGraphic
+	 * winMenu, annars så tar den bort ett liv och sen kallar på hangmanGraphic
 	 */
 	public static void guessStringCheck() {
 		if (guessString.equals(secretWord)) {
@@ -144,7 +143,7 @@ public class Hangman {
 	 * @param s
 	 *            Stringen som ska kollas ifall den är en char
 	 * 
-	 * @return skickar tillbaka true om det är en char
+	 * @return skickar tillbaka true om det är en char annars false
 	 */
 	public static boolean charCheck(String s) {
 		if (s.length() > 1) {
@@ -189,7 +188,7 @@ public class Hangman {
 				Arrays.asList('1', '2', '3', '4', '5', '6', '7', '8', '9', '0', ',', '.', ';', ':'));
 		for (int i = 0; i < s.length(); i++) {
 			if (numbers.contains(s.charAt(i))) {
-				hcw.println("Don't use numbers, commas, dots");
+				hcw.println("Don't use numbers, commas, periods");
 				hcw.println("or semicolons in your word/guess.");
 				return true;
 			}
