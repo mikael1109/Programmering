@@ -8,7 +8,6 @@ public class ArraySummerare {
 		for(int i = 0; i < Nummer.length; i++) {
 			sum += Nummer[i];
 		}
-		sum +=5;
 		System.out.println(sum);
 	}
 
