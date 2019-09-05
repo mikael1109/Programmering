@@ -22,7 +22,7 @@ public class Uppgift2 {
 	 * returnar ordet
 	 * 
 	 * @param s ordet som ska reversas
-	 * @return
+	 * @return skickar tillbaka omvända stringen
 	 */
 	public static String reverse(String s) {
 		temp += s.charAt(s.length() - count - 1);
