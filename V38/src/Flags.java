@@ -26,19 +26,29 @@ public class Flags extends Application {
 
 		tchadButton.setOnAction(event -> {
 			StackPane tchadLayout = new StackPane();
-			Scene tchadScene = new Scene(tchadLayout, 320, 180, Color.YELLOW);
+			Scene tchadScene = new Scene(tchadLayout, 320, 180);
 			Stage tchad = new Stage();
-			tchad.setTitle("Tchad");
+			tchad.setTitle("Tchad/Rumänien");
 			tchad.setScene(tchadScene);
 			tchad.show();
-			tchad.setX(sStage.getX());
-			tchad.setY(sStage.getY());
 			
 			BorderPane border = new BorderPane();
 			Rectangle left = new Rectangle();
 			left.setFill(Color.DARKSLATEBLUE);
-			
-			
+			left.setWidth(106);
+			left.setHeight(180);
+			border.setLeft(left);
+			Rectangle mid = new Rectangle();
+			mid.setFill(Color.YELLOW);
+			mid.setWidth(107);
+			mid.setHeight(180);
+			border.setCenter(mid);
+			Rectangle right = new Rectangle();
+			right.setFill(Color.RED);
+			right.setWidth(106);
+			right.setHeight(180);
+			border.setRight(right);
+			tchadLayout.getChildren().add(border);
 
 		});
 	}
