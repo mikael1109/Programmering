@@ -27,12 +27,14 @@ public class Flags extends Application {
 		bangladeshButton.setText("Bangladesh");
 		Button colombiaButton = new Button();
 		colombiaButton.setText("Colombia");
+		Button danmarkButton = new Button();
+		danmarkButton.setText("Danmark");
 		
 		HBox hbox = new HBox();
 		hbox.setSpacing(30);
 		hbox.setPadding(new Insets(15 ,10 ,15 ,10));
 		hbox.setStyle("-fx-background-color: #336699;");
-		hbox.getChildren().addAll(bangladeshButton, tchadButton, colombiaButton);
+		hbox.getChildren().addAll(bangladeshButton, tchadButton, colombiaButton, danmarkButton);
 		
 		BorderPane layout = new BorderPane();
 		layout.setTop(hbox);
@@ -85,6 +87,45 @@ public class Flags extends Application {
 			circle.setFill(Color.ORANGERED);
 			circle.setRadius(55);
 			grid.add(circle, 3, 1);
+		});
+		
+		colombiaButton.setOnAction(event ->{
+			BorderPane border = new BorderPane();
+			Scene colombiaScen = new Scene(border, 320, 180);
+			Stage colombia = new Stage();
+			colombia.setTitle("Colombia");
+			colombia.setScene(colombiaScen);
+			colombia.show();
+			
+			Rectangle top = new Rectangle();
+			top.setHeight(90);
+			top.setWidth(320);
+			top.setFill(Color.YELLOW);
+			Rectangle mid = new Rectangle();
+			mid.setHeight(45);
+			mid.setWidth(320);
+			mid.setFill(Color.DARKBLUE);
+			Rectangle bot = new Rectangle();
+			bot.setHeight(45);
+			bot.setWidth(320);
+			bot.setFill(Color.RED);
+			
+			border.setTop(top);
+			border.setCenter(mid);
+			border.setBottom(bot);
+		});
+		
+		danmarkButton.setOnAction(event ->{
+			GridPane grid = new GridPane();
+			Scene danmarkScene = new Scene(grid, 320, 180);
+			Stage danmark = new Stage();
+			danmark.setScene(danmarkScene);
+			danmark.show();
+			
+			grid.setPadding(new Insets(10, 10, 10, 10));
+			grid.setStyle("-fx-background-color: #e01907;");
+			grid.setHgap(30);
+			grid.setVgap(30); 
 		});
 	}
 
