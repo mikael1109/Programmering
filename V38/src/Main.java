@@ -4,6 +4,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.scene.Group;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.GridPane;
@@ -21,7 +22,7 @@ public class Main extends Application {
 	public void start(Stage sStage) {
 		Flags flag = new Flags();
 		sStage.setTitle("Flaggor");
-		
+
 		Button tchadButton = new Button();
 		tchadButton.setText("Tchad");
 		Button bangladeshButton = new Button();
@@ -30,15 +31,25 @@ public class Main extends Application {
 		colombiaButton.setText("Colombia");
 		Button danmarkButton = new Button();
 		danmarkButton.setText("Danmark");
-		
+
 		HBox hbox = new HBox();
 		hbox.setSpacing(30);
-		hbox.setPadding(new Insets(15 ,10 ,15 ,10));
+		hbox.setPadding(new Insets(15, 10, 15, 10));
 		hbox.setStyle("-fx-background-color: #336699;");
+
+		Group jLayout = new Group();
+		Circle c = new Circle();
+		c.setTranslateX(250);
+		c.setTranslateY(300);
+		c.setRadius(100);
+		c.setFill(Color.RED);
+		jLayout.getChildren().add(c);
+
 		hbox.getChildren().addAll(bangladeshButton, tchadButton, colombiaButton, danmarkButton);
-		
 		BorderPane layout = new BorderPane();
 		layout.setTop(hbox);
+		layout.setCenter(jLayout);
+		layout.setStyle("-fx-background-color: #ffffff;");
 		Scene scene = new Scene(layout, 500, 500);
 		sStage.setScene(scene);
 		sStage.show();
@@ -46,16 +57,16 @@ public class Main extends Application {
 		tchadButton.setOnAction(event -> {
 			flag.tchad();
 		});
-		
-		bangladeshButton.setOnAction(event ->{
+
+		bangladeshButton.setOnAction(event -> {
 			flag.bangladesh();
 		});
-		
-		colombiaButton.setOnAction(event ->{
+
+		colombiaButton.setOnAction(event -> {
 			flag.colombia();
 		});
-		
-		danmarkButton.setOnAction(event ->{
+
+		danmarkButton.setOnAction(event -> {
 			flag.danmark();
 		});
 	}

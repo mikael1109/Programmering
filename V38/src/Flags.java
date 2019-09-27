@@ -9,6 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Circle;
+import javafx.scene.Group;
 
 public class Flags {
 	
@@ -25,22 +26,23 @@ public class Flags {
 		Stage tchad = new Stage();
 		tchad.setTitle("Tchad/Rumänien");
 		tchad.setScene(tchadScene);
+		tchad.setResizable(false);
 		tchad.show();
 		
 		Rectangle left = new Rectangle();
 		left.setFill(Color.DARKSLATEBLUE);
-		left.setWidth(106);
-		left.setHeight(180);
+		left.setWidth(110);
+		left.setHeight(200);
 		border.setLeft(left);
 		Rectangle mid = new Rectangle();
 		mid.setFill(Color.YELLOW);
-		mid.setWidth(107);
-		mid.setHeight(180);
+		mid.setWidth(111);
+		mid.setHeight(200);
 		border.setCenter(mid);
 		Rectangle right = new Rectangle();
 		right.setFill(Color.RED);
-		right.setWidth(106);
-		right.setHeight(180);
+		right.setWidth(110);
+		right.setHeight(200);
 		border.setRight(right);
 	}
 	
@@ -55,6 +57,7 @@ public class Flags {
 		Stage bangladesh = new Stage();
 		bangladesh.setTitle("Bangladesh");
 		bangladesh.setScene(bangladeshScene);
+		bangladesh.setResizable(false);
 		bangladesh.show();
 		
 		Circle circle = new Circle();
@@ -69,19 +72,20 @@ public class Flags {
 		Stage colombia = new Stage();
 		colombia.setTitle("Colombia");
 		colombia.setScene(colombiaScen);
+		colombia.setResizable(false);
 		colombia.show();
 		
 		Rectangle top = new Rectangle();
-		top.setHeight(90);
-		top.setWidth(320);
+		top.setHeight(95);
+		top.setWidth(340);
 		top.setFill(Color.YELLOW);
 		Rectangle mid = new Rectangle();
-		mid.setHeight(45);
-		mid.setWidth(320);
+		mid.setHeight(50);
+		mid.setWidth(340);
 		mid.setFill(Color.DARKBLUE);
 		Rectangle bot = new Rectangle();
-		bot.setHeight(45);
-		bot.setWidth(320);
+		bot.setHeight(50);
+		bot.setWidth(340);
 		bot.setFill(Color.RED);
 		
 		border.setTop(top);
@@ -90,34 +94,23 @@ public class Flags {
 	}
 	
 	public void danmark() {
-		GridPane grid = new GridPane();
-		Scene danmarkScene = new Scene(grid, 320, 180);
+		StackPane pane = new StackPane();
+		Group group = new Group();
+		pane.getChildren().add(group);
+		Scene danmarkScene = new Scene(pane, 320, 180);
 		Stage danmark = new Stage();
 		danmark.setScene(danmarkScene);
 		danmark.setTitle("Danmark");
+		danmark.setResizable(false);
 		danmark.show();
+		pane.setStyle("-fx-background-color: #e01907;");
 		
-		grid.setStyle("-fx-background-color: #e01907;");
-		grid.setHgap(36);
-		grid.setVgap(36); 
-		
-		Rectangle rect1 = new Rectangle();
+		Rectangle rect1 = new Rectangle(0, 80, 340, 32);
 		rect1.setFill(Color.WHITE);
-		rect1.setWidth(32);
-		rect1.setHeight(73);
-		grid.add(rect1, 5, 0);
-		
-		Rectangle rect2 = new Rectangle();
+		Rectangle rect2 = new Rectangle(120, 0, 32, 200);
 		rect2.setFill(Color.WHITE);
-		rect2.setWidth(32);
-		rect2.setHeight(73);
-		grid.add(rect2, 5, 1);
 		
-		Rectangle rect3 = new Rectangle();
-		rect3.setFill(Color.WHITE);
-		rect3.setWidth(320);
-		rect3.setHeight(32);
-		grid.add(rect3, 0, 2);
+		group.getChildren().addAll(rect1, rect2);
 	}
 
 }
