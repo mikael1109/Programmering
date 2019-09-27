@@ -11,7 +11,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Circle;
 
-public class Flags extends Application {
+public class Main extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
@@ -19,6 +19,7 @@ public class Flags extends Application {
 
 	@SuppressWarnings("restriction")
 	public void start(Stage sStage) {
+		Flags flag = new Flags();
 		sStage.setTitle("Flaggor");
 		
 		Button tchadButton = new Button();
@@ -43,89 +44,19 @@ public class Flags extends Application {
 		sStage.show();
 
 		tchadButton.setOnAction(event -> {
-			StackPane tchadLayout = new StackPane();
-			Scene tchadScene = new Scene(tchadLayout, 320, 180);
-			Stage tchad = new Stage();
-			tchad.setTitle("Tchad/Rumänien");
-			tchad.setScene(tchadScene);
-			tchad.show();
-			
-			BorderPane border = new BorderPane();
-			Rectangle left = new Rectangle();
-			left.setFill(Color.DARKSLATEBLUE);
-			left.setWidth(106);
-			left.setHeight(180);
-			border.setLeft(left);
-			Rectangle mid = new Rectangle();
-			mid.setFill(Color.YELLOW);
-			mid.setWidth(107);
-			mid.setHeight(180);
-			border.setCenter(mid);
-			Rectangle right = new Rectangle();
-			right.setFill(Color.RED);
-			right.setWidth(106);
-			right.setHeight(180);
-			border.setRight(right);
-			tchadLayout.getChildren().add(border);
-
+			flag.tchad();
 		});
 		
 		bangladeshButton.setOnAction(event ->{
-			GridPane grid = new GridPane();
-			grid.setHgap(20);
-			grid.setVgap(25);
-			grid.setPadding(new Insets(10, 10, 10, 10));
-			grid.setStyle("-fx-background-color: #456342;");
-			
-			Scene bangladeshScene = new Scene(grid, 320, 180);
-			Stage bangladesh = new Stage();
-			bangladesh.setTitle("Bangladesh");
-			bangladesh.setScene(bangladeshScene);
-			bangladesh.show();
-			
-			Circle circle = new Circle();
-			circle.setFill(Color.ORANGERED);
-			circle.setRadius(55);
-			grid.add(circle, 3, 1);
+			flag.bangladesh();
 		});
 		
 		colombiaButton.setOnAction(event ->{
-			BorderPane border = new BorderPane();
-			Scene colombiaScen = new Scene(border, 320, 180);
-			Stage colombia = new Stage();
-			colombia.setTitle("Colombia");
-			colombia.setScene(colombiaScen);
-			colombia.show();
-			
-			Rectangle top = new Rectangle();
-			top.setHeight(90);
-			top.setWidth(320);
-			top.setFill(Color.YELLOW);
-			Rectangle mid = new Rectangle();
-			mid.setHeight(45);
-			mid.setWidth(320);
-			mid.setFill(Color.DARKBLUE);
-			Rectangle bot = new Rectangle();
-			bot.setHeight(45);
-			bot.setWidth(320);
-			bot.setFill(Color.RED);
-			
-			border.setTop(top);
-			border.setCenter(mid);
-			border.setBottom(bot);
+			flag.colombia();
 		});
 		
 		danmarkButton.setOnAction(event ->{
-			GridPane grid = new GridPane();
-			Scene danmarkScene = new Scene(grid, 320, 180);
-			Stage danmark = new Stage();
-			danmark.setScene(danmarkScene);
-			danmark.show();
-			
-			grid.setPadding(new Insets(10, 10, 10, 10));
-			grid.setStyle("-fx-background-color: #e01907;");
-			grid.setHgap(30);
-			grid.setVgap(30); 
+			flag.danmark();
 		});
 	}
 
