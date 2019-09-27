@@ -2,15 +2,13 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.Group;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
 
 public class Main extends Application {
 
@@ -41,8 +39,8 @@ public class Main extends Application {
 		// Sätter mellan rummet och paddingen på knapparna, sätter och en bakgrund färg.
 		// allt med hbox.
 		HBox hbox = new HBox();
-		hbox.setSpacing(30);
-		hbox.setPadding(new Insets(15, 10, 15, 10));
+		hbox.setSpacing(32);
+		hbox.setPadding(new Insets(10, 25, 10, 25));
 		hbox.setStyle("-fx-background-color: #336699;");
 
 		// Japanska flaggan :)
@@ -52,6 +50,7 @@ public class Main extends Application {
 		c.setTranslateY(300);
 		c.setRadius(100);
 		c.setFill(Color.RED);
+		Text jText = new Text("(JAPAN)");
 		jLayout.getChildren().add(c);
 
 		// lägger knapparna på toppen och japanska flaggan under med borderpane och
@@ -60,13 +59,14 @@ public class Main extends Application {
 		BorderPane layout = new BorderPane();
 		layout.setTop(hbox);
 		layout.setCenter(jLayout);
+		layout.setBottom(jText);
 		layout.setStyle("-fx-background-color: #ffffff;");
 		Scene scene = new Scene(layout, 500, 500);
 		sStage.setScene(scene);
 		sStage.setTitle("Flaggor");
 		sStage.show();
 
-		// Nedan för här kallas man på alla flaggor efter deras knapp har blivit tryckt
+		// Nedan för här kallas alla flaggor på efter deras knapp har blivit tryckt
 		tchadButton.setOnAction(event -> {
 			flag.tchad();
 		});
