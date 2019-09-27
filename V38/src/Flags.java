@@ -9,6 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Polygon;
 import javafx.scene.Group;
 
 public class Flags {
@@ -18,6 +19,7 @@ public class Flags {
 		bangladesh();
 		colombia();
 		danmark();
+		djibouti();
 	}
 	
 	public void tchad() {
@@ -111,6 +113,46 @@ public class Flags {
 		rect2.setFill(Color.WHITE);
 		
 		group.getChildren().addAll(rect1, rect2);
+	}
+	
+	public void djibouti() {
+		Group layout = new Group();
+		Scene scene = new Scene(layout, 320, 180);
+		Stage djibouti = new Stage();
+		djibouti.setTitle("Djibouti");
+		djibouti.setScene(scene);
+		djibouti.setResizable(false);
+		djibouti.show();
+		
+		Polygon tri1 = new Polygon();
+		tri1.getPoints().addAll(new Double[] {
+				0.0, 0.0,
+				335.0, 0.0,
+				335.0, 100.0,
+				192.0, 100.0
+		});
+		tri1.setFill(Color.DEEPSKYBLUE);
+		
+		Polygon tri2 = new Polygon();
+		tri2.getPoints().addAll(new Double[] {
+				335.0, 191.0,
+				335.0, 100.0,
+				192.0, 100.0,
+				0.0, 191.0
+		});
+		tri2.setFill(Color.FORESTGREEN);
+		
+		Polygon star = new Polygon();
+		star.getPoints().addAll(new Double[] {
+				62.5, 70.0,
+				80.0, 110.0,
+				40.0, 85.0,
+				85.0, 85.0,
+				50.0, 110.0
+		});
+		star.setFill(Color.RED);
+		
+		layout.getChildren().addAll(tri1, tri2, star);
 	}
 
 }
