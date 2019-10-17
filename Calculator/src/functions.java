@@ -5,8 +5,7 @@ public class functions {
 	public double sum;
 	
 	public static void main(String[] args) {
-		double i = 1.0/2.0;
-		System.out.println(i);
+		
 	}
 
 	public void clear() {
@@ -49,7 +48,6 @@ public class functions {
 		int maxCount = 0;
 		int prevFunc = 0;
 		numb += activeNumb;
-		System.out.println(numb);
 		char[] c = numb.toCharArray();
 		for (int i = 0; i < c.length; i++) {
 			if (c[i] == 'x' || c[i] == '+' || c[i] == '/') {
