@@ -19,57 +19,41 @@ public class calc extends Application {
 
 		functions func = new functions();
 
-		Button ett = new Button();
-		ett.setText("1");
+		Button ett = new Button("1");
 		ett.setMinSize(100, 100);
-		Button tva = new Button();
-		tva.setText("2");
+		Button tva = new Button("2");
 		tva.setMinSize(100, 100);
-		Button tre = new Button();
-		tre.setText("3");
+		Button tre = new Button("3");
 		tre.setMinSize(100, 100);
-		Button fyra = new Button();
-		fyra.setText("4");
+		Button fyra = new Button("4");
 		fyra.setMinSize(100, 100);
-		Button fem = new Button();
-		fem.setText("5");
+		Button fem = new Button("5");
 		fem.setMinSize(100, 100);
-		Button sex = new Button();
-		sex.setText("6");
+		Button sex = new Button("6");
 		sex.setMinSize(100, 100);
-		Button sju = new Button();
-		sju.setText("7");
+		Button sju = new Button("7");
 		sju.setMinSize(100, 100);
-		Button atta = new Button();
-		atta.setText("8");
+		Button atta = new Button("8");
 		atta.setMinSize(100, 100);
-		Button nio = new Button();
-		nio.setText("9");
+		Button nio = new Button("9");
 		nio.setMinSize(100, 100);
-		Button clear = new Button();
-		clear.setText("CLEAR");
-		clear.setMinSize(450, 50);
-		Button noll = new Button();
-		noll.setText("0");
+		Button noll = new Button("0");
 		noll.setMinSize(100, 100);
-		Button exe = new Button();
-		exe.setText("=");
+		Button clear = new Button("CLEAR");
+		clear.setMinSize(450, 50);
+		Button exe = new Button("=");
 		exe.setMinSize(100, 100);
-		Button add = new Button();
-		add.setText("+");
-		add.setMinSize(100, 100);
-		Button minus = new Button();
-		minus.setText("-");
+		Button add = new Button("+");
+		add.setMinSize(100, 100); 
+		Button minus = new Button("-");
 		minus.setMinSize(100, 100);
-		Button multi = new Button();
-		multi.setText("x");
+		Button multi = new Button("x");
 		multi.setMinSize(100, 100);
-		Button divide = new Button();
-		divide.setText("/");
+		Button divide = new Button("/");
 		divide.setMinSize(100, 100);
-		Button dot = new Button();
-		dot.setText(".");
+		Button dot = new Button(",");
 		dot.setMinSize(100, 100);
+		
 
 		GridPane layout = new GridPane();
 		layout.setHgap(10);
@@ -91,6 +75,7 @@ public class calc extends Application {
 		layout.add(divide, 2, 3);
 		layout.add(exe, 3, 3);
 		layout.setAlignment(Pos.CENTER);
+		
 
 		TextField topField = new TextField();
 		topField.setMaxSize(470, 25);
@@ -173,6 +158,11 @@ public class calc extends Application {
 		});
 		add.setOnAction(event -> {
 			func.addNumb();
+			field.setText(func.activeNumb);
+			topField.setText(func.numb);
+		});
+		minus.setOnAction(event -> {
+			func.minus();
 			field.setText(func.activeNumb);
 			topField.setText(func.numb);
 		});

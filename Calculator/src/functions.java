@@ -25,6 +25,15 @@ public class functions {
 			activeNumb = "";
 		}
 	}
+	
+	public void minus() {
+		if (activeNumb.equals("")) {
+
+		} else {
+			numb += (activeNumb + "-");
+			activeNumb = "";
+		}
+	}
 
 	public void multiply() {
 		if (activeNumb.equals("")) {
@@ -50,16 +59,16 @@ public class functions {
 		numb += activeNumb;
 		char[] c = numb.toCharArray();
 		for (int i = 0; i < c.length; i++) {
-			if (c[i] == 'x' || c[i] == '+' || c[i] == '/') {
+			if (c[i] == 'x' || c[i] == '+' || c[i] == '/' || c[i] == '-') {
 				maxCount++;
 			}
 		}
 		for (int i = 0; i < c.length; i++) {
-			if (c[i] == '+' || c[i] == 'x' || c[i] == '/') {
+			if (c[i] == '+' || c[i] == 'x' || c[i] == '/' || c[i] == '-') {
 				if (count == 0) {
 					String firstNumb = "";
 					for (int y = 0; y < i; y++) {
-						if (c[y] == 'x' || c[y] == '+' || c[y] == '/') {
+						if (c[y] == 'x' || c[y] == '+' || c[y] == '/' || c[y] == '-') {
 
 						} else {
 							firstNumb += c[y];
@@ -70,7 +79,7 @@ public class functions {
 				if(count > 0 || count != maxCount){
 					String aNumb = "";
 					for (int y = prevFunc; y < i; y++) {
-						if (c[y] == 'x' || c[y] == '+' || c[y] == '/') {
+						if (c[y] == 'x' || c[y] == '+' || c[y] == '/' || c[y] == '-') {
 
 						} else {
 							aNumb += c[y];
@@ -82,6 +91,8 @@ public class functions {
 						sum *= Double.parseDouble(aNumb);
 					}else if(c[prevFunc] == '/') {
 						sum = sum/Double.parseDouble(aNumb);
+					}else if(c[prevFunc] == '-') {
+						sum -= Double.parseDouble(aNumb);
 					}
 				}
 				count++;
@@ -89,7 +100,7 @@ public class functions {
 				if(count == maxCount) {
 					String aNumb = "";
 					for (int y = prevFunc; y < c.length; y++) {
-						if (c[y] == 'x' || c[y] == '+' || c[y] == '/') {
+						if (c[y] == 'x' || c[y] == '+' || c[y] == '/' || c[y] == '-') {
 
 						} else {
 							aNumb += c[y];
@@ -101,6 +112,8 @@ public class functions {
 						sum *= Double.parseDouble(aNumb);
 					}else if(c[prevFunc] == '/') {
 						sum = sum/Double.parseDouble(aNumb);
+					}else if(c[prevFunc] == '-') {
+						sum -= Double.parseDouble(aNumb);
 					}
 					if(sum % 1 == 0) {
 						activeNumb = Integer.toString((int) sum);
