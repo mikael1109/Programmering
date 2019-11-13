@@ -44,7 +44,7 @@ public class calc extends Application {
 		Button exe = new Button("=");
 		exe.setMinSize(100, 100);
 		Button add = new Button("+");
-		add.setMinSize(100, 100); 
+		add.setMinSize(100, 100);
 		Button minus = new Button("-");
 		minus.setMinSize(100, 100);
 		Button multi = new Button("x");
@@ -53,7 +53,6 @@ public class calc extends Application {
 		divide.setMinSize(100, 100);
 		Button dot = new Button(",");
 		dot.setMinSize(100, 100);
-		
 
 		GridPane layout = new GridPane();
 		layout.setHgap(10);
@@ -75,7 +74,6 @@ public class calc extends Application {
 		layout.add(divide, 2, 3);
 		layout.add(exe, 3, 3);
 		layout.setAlignment(Pos.CENTER);
-		
 
 		TextField topField = new TextField();
 		topField.setMaxSize(470, 25);
@@ -95,10 +93,12 @@ public class calc extends Application {
 
 		BorderPane border = new BorderPane();
 		border.setTop(fieldBorder);
+		fieldBorder.setTranslateY(10);
 		border.setCenter(layout);
 		border.setBottom(clear);
 		border.setAlignment(field, Pos.CENTER);
 		border.setAlignment(topField, Pos.CENTER);
+		clear.setTranslateY(-10);
 		border.setAlignment(clear, Pos.CENTER);
 
 		Scene mainScene = new Scene(border, 500, 600);
@@ -148,8 +148,16 @@ public class calc extends Application {
 			field.setText(func.activeNumb);
 		});
 		dot.setOnAction(event -> {
-			func.actNumb('.');
-			field.setText(func.activeNumb);
+			boolean dotActive = false;
+			for (int i = 0; i < func.activeNumb.length(); i++) {
+				if (func.activeNumb.charAt(i) == '.') {
+					dotActive = true;
+				}
+			}
+			if (!dotActive) {
+				func.actNumb('.');
+				field.setText(func.activeNumb);
+			}
 		});
 		clear.setOnAction(event -> {
 			func.clear();
