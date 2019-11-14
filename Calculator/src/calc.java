@@ -11,77 +11,50 @@ import javafx.geometry.Pos;
 
 public class calc extends Application {
 
+	functions func = new functions();
+	TextField topField = new TextField();
+	TextField field = new TextField();
+
 	public static void main(String[] args) {
 		launch(args);
 	}
 
 	public void start(Stage sStage) {
 
-		functions func = new functions();
-
-		Button ett = new Button("1");
-		ett.setMinSize(100, 100);
-		Button tva = new Button("2");
-		tva.setMinSize(100, 100);
-		Button tre = new Button("3");
-		tre.setMinSize(100, 100);
-		Button fyra = new Button("4");
-		fyra.setMinSize(100, 100);
-		Button fem = new Button("5");
-		fem.setMinSize(100, 100);
-		Button sex = new Button("6");
-		sex.setMinSize(100, 100);
-		Button sju = new Button("7");
-		sju.setMinSize(100, 100);
-		Button atta = new Button("8");
-		atta.setMinSize(100, 100);
-		Button nio = new Button("9");
-		nio.setMinSize(100, 100);
-		Button noll = new Button("0");
-		noll.setMinSize(100, 100);
-		Button clear = new Button("CLEAR");
-		clear.setMinSize(450, 50);
-		Button exe = new Button("=");
-		exe.setMinSize(100, 100);
-		Button add = new Button("+");
-		add.setMinSize(100, 100);
-		Button minus = new Button("-");
-		minus.setMinSize(100, 100);
-		Button multi = new Button("x");
-		multi.setMinSize(100, 100);
-		Button divide = new Button("/");
-		divide.setMinSize(100, 100);
-		Button dot = new Button(",");
-		dot.setMinSize(100, 100);
+		Button[] buttons = { new Button("1"), new Button("2"), new Button("3"), new Button("+"), new Button("4"),
+				new Button("5"), new Button("6"), new Button("-"), new Button("7"), new Button("8"), new Button("9"),
+				new Button("."), new Button("x"), new Button("0"), new Button("/"), new Button("="),
+				new Button("CLEAR") };
+		for (int i = 0; i < buttons.length; i++) {
+			if (buttons[i].getText().equals("CLEAR")) {
+				buttons[i].setMinSize(450, 50);
+			} else {
+				buttons[i].setMinSize(100, 100);
+			}
+		}
 
 		GridPane layout = new GridPane();
 		layout.setHgap(10);
 		layout.setVgap(10);
-		layout.add(ett, 0, 0);
-		layout.add(tva, 1, 0);
-		layout.add(tre, 2, 0);
-		layout.add(add, 3, 0);
-		layout.add(fyra, 0, 1);
-		layout.add(fem, 1, 1);
-		layout.add(sex, 2, 1);
-		layout.add(minus, 3, 1);
-		layout.add(sju, 0, 2);
-		layout.add(atta, 1, 2);
-		layout.add(nio, 2, 2);
-		layout.add(dot, 3, 2);
-		layout.add(multi, 0, 3);
-		layout.add(noll, 1, 3);
-		layout.add(divide, 2, 3);
-		layout.add(exe, 3, 3);
+		int layoutCount = 0;
+		int layoutCount2 = 0;
+		for (int i = 0; i < buttons.length - 1; i++) {
+			layout.add(buttons[i], layoutCount, layoutCount2);
+			System.out.println(buttons[i].getText());
+			if (layoutCount != 3) {
+				layoutCount++;
+			} else {
+				layoutCount = 0;
+				layoutCount2++;
+			}
+		}
 		layout.setAlignment(Pos.CENTER);
 
-		TextField topField = new TextField();
 		topField.setMaxSize(470, 25);
 		topField.setMinSize(470, 25);
 		topField.setFont(Font.font("Verdana", FontWeight.BOLD, 15));
 		topField.setEditable(false);
 
-		TextField field = new TextField();
 		field.setMaxSize(470, 55);
 		field.setMinSize(470, 55);
 		field.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
@@ -95,11 +68,11 @@ public class calc extends Application {
 		border.setTop(fieldBorder);
 		fieldBorder.setTranslateY(10);
 		border.setCenter(layout);
-		border.setBottom(clear);
+		border.setBottom(buttons[16]);
 		border.setAlignment(field, Pos.CENTER);
 		border.setAlignment(topField, Pos.CENTER);
-		clear.setTranslateY(-10);
-		border.setAlignment(clear, Pos.CENTER);
+		buttons[16].setTranslateY(-10);
+		border.setAlignment(buttons[16], Pos.CENTER);
 
 		Scene mainScene = new Scene(border, 500, 600);
 		sStage.setScene(mainScene);
@@ -107,94 +80,73 @@ public class calc extends Application {
 		sStage.setResizable(false);
 		sStage.show();
 
-		ett.setOnAction(event -> {
-			func.actNumb('1');
-			field.setText(func.activeNumb);
-		});
-		tva.setOnAction(event -> {
-			func.actNumb('2');
-			field.setText(func.activeNumb);
-		});
-		tre.setOnAction(event -> {
-			func.actNumb('3');
-			field.setText(func.activeNumb);
-		});
-		fyra.setOnAction(event -> {
-			func.actNumb('4');
-			field.setText(func.activeNumb);
-		});
-		fem.setOnAction(event -> {
-			func.actNumb('5');
-			field.setText(func.activeNumb);
-		});
-		sex.setOnAction(event -> {
-			func.actNumb('6');
-			field.setText(func.activeNumb);
-		});
-		sju.setOnAction(event -> {
-			func.actNumb('7');
-			field.setText(func.activeNumb);
-		});
-		atta.setOnAction(event -> {
-			func.actNumb('8');
-			field.setText(func.activeNumb);
-		});
-		nio.setOnAction(event -> {
-			func.actNumb('9');
-			field.setText(func.activeNumb);
-		});
-		noll.setOnAction(event -> {
-			func.actNumb('0');
-			field.setText(func.activeNumb);
-		});
-		dot.setOnAction(event -> {
-			boolean dotActive = false;
-			for (int i = 0; i < func.activeNumb.length(); i++) {
-				if (func.activeNumb.charAt(i) == '.') {
-					dotActive = true;
-				}
-			}
-			if (!dotActive) {
-				func.actNumb('.');
+		for (int i = 0; i < buttons.length; i++) {
+			btnEvent(buttons[i]);
+		}
+	}
+
+	public void btnEvent(Button btn) {
+		if (Character.isDigit(btn.getText().charAt(0))) {
+			btn.setOnAction(event -> {
+				func.actNumb(btn.getText().charAt(0));
 				field.setText(func.activeNumb);
-			}
-		});
-		clear.setOnAction(event -> {
-			func.clear();
-			field.setText(func.activeNumb);
-			topField.setText(func.numb);
-		});
-		add.setOnAction(event -> {
-			func.addNumb();
-			field.setText(func.activeNumb);
-			topField.setText(func.numb);
-		});
-		minus.setOnAction(event -> {
-			func.minus();
-			field.setText(func.activeNumb);
-			topField.setText(func.numb);
-		});
-		multi.setOnAction(event -> {
-			func.multiply();
-			field.setText(func.activeNumb);
-			topField.setText(func.numb);
-		});
-		divide.setOnAction(event -> {
-			func.divide();
-			field.setText(func.activeNumb);
-			topField.setText(func.numb);
-		});
-		exe.setOnAction(event -> {
-			func.execute();
-			if (func.sum % 1 == 0) {
-				field.setText(Integer.toString((int) func.sum));
-			} else {
-				field.setText(Double.toString(func.sum));
-			}
-			topField.setText(func.numb);
-			func.sum = 0;
-			func.numb = "";
-		});
+			});
+		} else if (btn.getText().equals(".")) {
+			btn.setOnAction(event -> {
+				boolean dotActive = false;
+				for (int i = 0; i < func.activeNumb.length(); i++) {
+					if (func.activeNumb.charAt(i) == '.') {
+						dotActive = true;
+					}
+				}
+				if (!dotActive) {
+					func.actNumb('.');
+					field.setText(func.activeNumb);
+				}
+			});
+		} else if (btn.getText().equals("+")) {
+			btn.setOnAction(event -> {
+				func.addNumb();
+				field.setText(func.activeNumb);
+				topField.setText(func.numb);
+			});
+		} else if (btn.getText().equals("-")) {
+			btn.setOnAction(event -> {
+				func.minus();
+				field.setText(func.activeNumb);
+				topField.setText(func.numb);
+			});
+		} else if (btn.getText().equals("x")) {
+			btn.setOnAction(event -> {
+				func.multiply();
+				field.setText(func.activeNumb);
+				topField.setText(func.numb);
+			});
+		} else if (btn.getText().equals("/")) {
+			btn.setOnAction(event -> {
+				func.divide();
+				field.setText(func.activeNumb);
+				topField.setText(func.numb);
+			});
+		} else if (btn.getText().equals("=")) {
+			btn.setOnAction(event -> {
+				func.execute();
+				if (func.sum % 1 == 0) {
+					field.setText(Integer.toString((int) func.sum));
+				} else {
+					field.setText(Double.toString(func.sum));
+				}
+				topField.setText(func.numb);
+				func.sum = 0;
+				func.numb = "";
+			});
+		} else if (btn.getText().equals("CLEAR")) {
+			btn.setOnAction(event -> {
+				func.clear();
+				field.setText(func.activeNumb);
+				topField.setText(func.numb);
+			});
+		}
 
 	}
 
