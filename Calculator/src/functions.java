@@ -1,22 +1,33 @@
+import java.util.ArrayList;
+
 public class functions {
 
 	public String activeNumb = "";
 	public String numb = "";
 	public double sum;
 
-	public static void main(String[] args) {
-
-	}
-
+	/**
+	 * sätter activeNumb och numb till ett tomt värde
+	 */
 	public void clear() {
 		activeNumb = "";
 		numb = "";
 	}
 
+	/**
+	 * plussar på en siffra eller en punkt i stringen activeNumb
+	 * 
+	 * @param c
+	 *            siffran eller punkten
+	 */
 	public void actNumb(char c) {
 		activeNumb += c;
 	}
 
+	/**
+	 * ifall activeNumb är tom gör den ingenting annars så plussar activeNumb och
+	 * ett pluss tecken och sätter activeNumb till ett tomt värde
+	 */
 	public void addNumb() {
 		if (activeNumb.equals("")) {
 
@@ -26,6 +37,9 @@ public class functions {
 		}
 	}
 
+	/**
+	 * Fungerar samma som addNumb fast med minus
+	 */
 	public void minus() {
 		if (activeNumb.equals("")) {
 
@@ -35,6 +49,9 @@ public class functions {
 		}
 	}
 
+	/**
+	 * Fungerar samma som addNumb fast med gånger
+	 */
 	public void multiply() {
 		if (activeNumb.equals("")) {
 
@@ -44,6 +61,9 @@ public class functions {
 		}
 	}
 
+	/**
+	 * Fungerar samma som addNumb fast med delat med
+	 */
 	public void divide() {
 		if (activeNumb.equals("")) {
 
@@ -53,6 +73,14 @@ public class functions {
 		}
 	}
 
+	/**
+	 * Kollar först hur många operatorer det finns i numb sen ifall count är 0 som
+	 * den är vid första talet sätter den firstNumb till till första talet och
+	 * sätter sum till firstNumb. Efter detta sätts prevFunc till i så nästa varv
+	 * har man värdet på förra operatorn sen så går den mellan operatorna och
+	 * använder lämpliga operatorer tills count är lika maxCount och då går den från
+	 * prevFunc till slutet på numb.
+	 */
 	public void execute() {
 		int count = 0;
 		int maxCount = 0;

@@ -6,7 +6,6 @@ import javafx.scene.text.*;
 import javafx.stage.Stage;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 
 public class calc extends Application {
@@ -24,13 +23,15 @@ public class calc extends Application {
 		Button[] buttons = { new Button("1"), new Button("2"), new Button("3"), new Button("+"), new Button("4"),
 				new Button("5"), new Button("6"), new Button("-"), new Button("7"), new Button("8"), new Button("9"),
 				new Button("."), new Button("x"), new Button("0"), new Button("/"), new Button("="),
-				new Button("CLEAR") };
-		for (int i = 0; i < buttons.length; i++) {
+				new Button("CLEAR") }; // skapar knapp arrayen
+
+		for (int i = 0; i < buttons.length; i++) { // Sätter alla knappar till samma storlek förrutom knappen clear
 			if (buttons[i].getText().equals("CLEAR")) {
 				buttons[i].setMinSize(450, 50);
 			} else {
 				buttons[i].setMinSize(100, 100);
 			}
+			btnEvent(buttons[i]); // kallar på btnEvent med alla knappar
 		}
 
 		GridPane layout = new GridPane();
@@ -38,9 +39,8 @@ public class calc extends Application {
 		layout.setVgap(10);
 		int layoutCount = 0;
 		int layoutCount2 = 0;
-		for (int i = 0; i < buttons.length - 1; i++) {
+		for (int i = 0; i < buttons.length - 1; i++) { // Lägger in alla knappar på rätt platts med hjälp av två counts
 			layout.add(buttons[i], layoutCount, layoutCount2);
-			System.out.println(buttons[i].getText());
 			if (layoutCount != 3) {
 				layoutCount++;
 			} else {
@@ -80,18 +80,19 @@ public class calc extends Application {
 		sStage.setResizable(false);
 		sStage.show();
 
-		for (int i = 0; i < buttons.length; i++) {
-			btnEvent(buttons[i]);
-		}
 	}
 
 	public void btnEvent(Button btn) {
-		if (Character.isDigit(btn.getText().charAt(0))) {
+		if (Character.isDigit(btn.getText().charAt(0))) { // Kollar ifall knappens text är ett nummer och kallar sen på
+															// actNumb med knappens nummer och sätter textfieldet till
+															// activeNumb
 			btn.setOnAction(event -> {
 				func.actNumb(btn.getText().charAt(0));
 				field.setText(func.activeNumb);
 			});
-		} else if (btn.getText().equals(".")) {
+		} else if (btn.getText().equals(".")) { // Kollar ifall knappens text är en punkt och kollar sen ifall det finns
+												// en annan punkt i talet ifall nej så kallar den på actNumb med punkten
+												// och skriver ut activeNumb
 			btn.setOnAction(event -> {
 				boolean dotActive = false;
 				for (int i = 0; i < func.activeNumb.length(); i++) {
@@ -104,31 +105,33 @@ public class calc extends Application {
 					field.setText(func.activeNumb);
 				}
 			});
-		} else if (btn.getText().equals("+")) {
+		} else if (btn.getText().equals("+")) { // Kallar på addNumb och sätter textfieldsen
 			btn.setOnAction(event -> {
 				func.addNumb();
 				field.setText(func.activeNumb);
 				topField.setText(func.numb);
 			});
-		} else if (btn.getText().equals("-")) {
+		} else if (btn.getText().equals("-")) { // Kallar på minus och sätter textfieldsen
 			btn.setOnAction(event -> {
 				func.minus();
 				field.setText(func.activeNumb);
 				topField.setText(func.numb);
 			});
-		} else if (btn.getText().equals("x")) {
+		} else if (btn.getText().equals("x")) { // Kallar på multiply och sätter textfieldsen
 			btn.setOnAction(event -> {
 				func.multiply();
 				field.setText(func.activeNumb);
 				topField.setText(func.numb);
 			});
-		} else if (btn.getText().equals("/")) {
+		} else if (btn.getText().equals("/")) { // Kallar på divide och sätter textfieldsen
 			btn.setOnAction(event -> {
 				func.divide();
 				field.setText(func.activeNumb);
 				topField.setText(func.numb);
 			});
-		} else if (btn.getText().equals("=")) {
+		} else if (btn.getText().equals("=")) { // Kallar på execute, kollar sen ifall summan har några decimaler ifall
+												// nej så gör den om den till en int ifall ja så har den kvar den som en
+												// double, sätter textfieldsen och återställer sum och numb.
 			btn.setOnAction(event -> {
 				func.execute();
 				if (func.sum % 1 == 0) {
@@ -140,7 +143,7 @@ public class calc extends Application {
 				func.sum = 0;
 				func.numb = "";
 			});
-		} else if (btn.getText().equals("CLEAR")) {
+		} else if (btn.getText().equals("CLEAR")) { // kallar på clear och sätter textfieldsen.
 			btn.setOnAction(event -> {
 				func.clear();
 				field.setText(func.activeNumb);
