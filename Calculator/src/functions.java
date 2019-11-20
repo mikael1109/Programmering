@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class functions {
 
 	public String activeNumb = "";
@@ -144,13 +142,13 @@ public class functions {
 					} else if (c[prevFunc] == '-') {
 						sum -= Double.parseDouble(aNumb);
 					}
-					if (sum % 1 == 0) {
-						activeNumb = Integer.toString((int) sum);
-					} else {
-						activeNumb = Double.toString(sum);
-					}
 				}
 			}
+		}
+		if (sum % 1 == 0) {
+			activeNumb = Integer.toString((int) sum);
+		} else {
+			activeNumb = Double.toString(sum);
 		}
 	}
 
