@@ -91,7 +91,7 @@ public class calc extends Application {
 				field.setText(func.activeNumb);
 			});
 		} else if (btn.getText().equals(".")) { // Kollar ifall knappens text är en punkt och kollar sen ifall det finns
-												// en annan punkt i talet ifall nej så kallar den på actNumb med punkten
+												// en annan punkt i talet och ifall activeNumb är tom ifall nej så kallar den på actNumb med punkten
 												// och skriver ut activeNumb
 			btn.setOnAction(event -> {
 				boolean dotActive = false;
@@ -100,7 +100,7 @@ public class calc extends Application {
 						dotActive = true;
 					}
 				}
-				if (!dotActive) {
+				if (!dotActive && func.activeNumb != "") {
 					func.actNumb('.');
 					field.setText(func.activeNumb);
 				}
