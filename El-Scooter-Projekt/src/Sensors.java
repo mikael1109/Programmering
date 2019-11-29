@@ -9,7 +9,7 @@ public class Sensors {
 	int sensorsQuantity = 4;
 	int sensorCount = 1;
 	
-	public void Sensors() throws InterruptedException{
+	public Sensors() throws InterruptedException{
 		for (int i = 0; i < sensorsQuantity; i++) {
 			sensorArray.add(new Sensor());
 		}
