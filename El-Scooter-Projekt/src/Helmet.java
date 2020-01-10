@@ -9,6 +9,11 @@ public class Helmet {
 	boolean inRange = false;
 	boolean rangeCheck = false;
 	int sensorCount = 0;
+	
+	boolean sensor1 = false;
+	boolean sensor2 = false;
+	boolean sensor3 = false;
+	boolean sensor4 = false;
 
 	public Helmet() throws InterruptedException, NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -24,9 +29,9 @@ public class Helmet {
 		Sensor activeSensor;
 		activeSensor = sensors.sensorArray.get(sensorCount);
 		if (activeSensor.laserLength <= 5) {
-			sysRange(true, activeSensor);
+			sysRange(true);
 		} else {
-			sysRange(false, activeSensor);
+			sysRange(false);
 		}
 		sensorCount++;
 		if (sensorCount == 4) {
@@ -42,11 +47,7 @@ public class Helmet {
 		}
 	}
 	
-	public void sysRange(boolean range, Sensor sensor) {
-		boolean sensor1 = false;
-		boolean sensor2 = false;
-		boolean sensor3 = false;
-		boolean sensor4 = false;
+	public void sysRange(boolean range) {
 		if(sensorCount == 0 && range) {
 			sensor1 = true;
 		}else if(sensorCount == 0 && !range){
@@ -75,9 +76,11 @@ public class Helmet {
 			System.out.println("All sensors in range");
 			rangeCheck = true;
 			inRange = true;
-		}else if(!sensor1 || !sensor2 || !sensor3 || !sensor4 && !rangeCheck) {
+		}
+		if(!rangeCheck && !range) {
 			inRange = false;
-		}else if(!sensor1 || !sensor2 || !sensor3 || !sensor4 && rangeCheck) {
+		}
+		if(rangeCheck && !range) {
 			System.out.println("All sensors no longer in range");
 			inRange = false;
 			rangeCheck = false;
