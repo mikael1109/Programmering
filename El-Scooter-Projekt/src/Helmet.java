@@ -9,7 +9,7 @@ public class Helmet {
 	boolean inRange = false;
 	boolean rangeCheck = false;
 	int sensorCount = 0;
-	
+
 	boolean sensor1 = false;
 	boolean sensor2 = false;
 	boolean sensor3 = false;
@@ -20,8 +20,20 @@ public class Helmet {
 		while (sensors.sensorsActive && sensors.sensorsConnected) {
 			checkRange();
 			if (br.ready()) {
-				changeRange(Double.parseDouble(br.readLine()));
+				String activeString = br.readLine();
+				if(checkDouble(activeString)) {
+					changeRange(Double.parseDouble(activeString));
+				}
 			}
+		}
+	}
+	
+	public boolean checkDouble(String s) {
+		try {
+			Double.parseDouble(s);
+			return true;
+		}catch (NumberFormatException e){
+			return false;
 		}
 	}
 
@@ -43,49 +55,50 @@ public class Helmet {
 	public void changeRange(double newRange) {
 		for (int i = 0; i < sensors.sensorsQuantity; i++) {
 			sensors.sensorArray.get(i).laserLength = newRange;
-			System.out.println(sensors.sensorArray.get(i).toString() + "'s range is now: " + sensors.sensorArray.get(i).laserLength);
+			System.out.println(sensors.sensorArray.get(i).toString() + "'s range is now: "
+					+ sensors.sensorArray.get(i).laserLength);
 		}
 	}
-	
+
 	public void sysRange(boolean range) {
-		if(sensorCount == 0 && range) {
+		if (sensorCount == 0 && range) {
 			sensor1 = true;
-		}else if(sensorCount == 0 && !range){
+		} else if (sensorCount == 0 && !range) {
 			sensor1 = false;
 		}
-		
-		if(sensorCount == 1 && range) {
+
+		if (sensorCount == 1 && range) {
 			sensor2 = true;
-		}else if(sensorCount == 1 && !range){
+		} else if (sensorCount == 1 && !range) {
 			sensor2 = false;
 		}
-		
-		if(sensorCount == 2 && range) {
+
+		if (sensorCount == 2 && range) {
 			sensor3 = true;
-		}else if(sensorCount == 2 && !range){
+		} else if (sensorCount == 2 && !range) {
 			sensor3 = false;
 		}
-		
-		if(sensorCount == 3 && range) {
+
+		if (sensorCount == 3 && range) {
 			sensor4 = true;
-		}else if(sensorCount == 3 && !range){
+		} else if (sensorCount == 3 && !range) {
 			sensor4 = false;
 		}
-		
-		if(sensor1 && sensor2 && sensor3 && sensor4 && !rangeCheck) {
+
+		if (sensor1 && sensor2 && sensor3 && sensor4 && !rangeCheck) {
 			System.out.println("All sensors in range");
 			rangeCheck = true;
 			inRange = true;
 		}
-		if(!rangeCheck && !range) {
+		if (!rangeCheck && !range) {
 			inRange = false;
 		}
-		if(rangeCheck && !range) {
+		if (rangeCheck && !range) {
 			System.out.println("All sensors no longer in range");
 			inRange = false;
 			rangeCheck = false;
 		}
-		
+
 	}
 
 }

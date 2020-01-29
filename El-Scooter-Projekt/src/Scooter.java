@@ -1,15 +1,18 @@
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Scooter {
 	
 	public boolean lock = true;
-
-	public static void main(String[] args) throws InterruptedException, NumberFormatException, IOException {
-		Helmet helmet = new Helmet();
+	
+	
+	public void unlock(Helmet helmet) {
+		System.out.println("unlock");
 	}
 	
-	public void unlock() {
-		
+	public void lock(Helmet helmet) {
+		System.out.println("lock");
 	}
 
 }
