@@ -16,26 +16,14 @@ public class Helmet {
 	boolean sensor4 = false;
 
 	public Helmet() throws InterruptedException, NumberFormatException, IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		while (sensors.sensorsActive && sensors.sensorsConnected) {
-			checkRange();
-			if (br.ready()) {
-				String activeString = br.readLine();
-				if(checkDouble(activeString)) {
-					changeRange(Double.parseDouble(activeString));
-				}
-			}
-		}
+		
 	}
 	
-	public boolean checkDouble(String s) {
-		try {
-			Double.parseDouble(s);
-			return true;
-		}catch (NumberFormatException e){
-			return false;
-		}
+	public void rangeUpdate(double d) {
+		changeRange(d);
+		checkRange();
 	}
+
 
 	public void checkRange() {
 		Sensor activeSensor;
