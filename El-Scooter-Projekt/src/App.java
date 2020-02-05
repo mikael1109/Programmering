@@ -18,9 +18,10 @@ public class App {
 					helmet.rangeUpdate(Double.parseDouble(activeRead));
 				}else if(!checkDouble(activeRead)){
 					if(activeRead.toUpperCase().equals("LOCK")) {
-						scooter.lock(helmet);
+						scooter.lock();
 					}else if(activeRead.toUpperCase().equals("UNLOCK")) {
 						scooter.unlock(helmet);
+						
 					}
 				}
 			}

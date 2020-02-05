@@ -27,6 +27,7 @@ public class Helmet {
 
 	public void checkRange() {
 		Sensor activeSensor;
+		do {
 		activeSensor = sensors.sensorArray.get(sensorCount);
 		if (activeSensor.laserLength <= 5) {
 			sysRange(true);
@@ -34,6 +35,8 @@ public class Helmet {
 			sysRange(false);
 		}
 		sensorCount++;
+		}while(sensorCount != 4);
+		
 		if (sensorCount == 4) {
 			sensorCount = 0;
 		}
