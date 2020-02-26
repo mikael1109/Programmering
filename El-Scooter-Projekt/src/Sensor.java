@@ -1,8 +1,8 @@
 
 public class Sensor {
 	
-	boolean active = true;
-	boolean isConnected = true;
+	boolean active = false;
+	boolean isConnected = false;
 	double laserLength = 0;
 
 }
