@@ -34,26 +34,28 @@ public class Sensors {
 	
 	
 	public boolean sensorStarted(Sensor sensor) throws InterruptedException {
-		if(sensor.active) {
+		if(!sensor.active) {
 			startTimer(sensor, sensorCount);
 			sensor.laserLength = 40;
 			// Start sensor
 			sensorCount++;
 			return true;
 		}else {
-			return false;	
+			return true;
+			System.out.println("Sensor redan startat");
 		}
 		
 	}
 	
 	public boolean checkConnection(Sensor sensor) throws InterruptedException{
-		if(sensor.isConnected) {
+		if(!sensor.isConnected) {
 			connectTimer(sensor, sensorCount);
 			// Starta connection
 			sensorCount++;
 			return true;
 		}else {
-			return false;
+			return true;
+			System.out.println("Sensor redan ansluten");
 		}
 	}
 	
