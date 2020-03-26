@@ -4,6 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.text.Text?>
 <GridPane alignment="center" hgap="10" vgap="10"
           xmlns="http://javafx.com/javafx/10.0.2-internal"
           xmlns:fx="http://javafx.com/fxml/1"
@@ -14,7 +15,13 @@
                 <Canvas fx:id="_canvas" height="200.0" width="200.0" />
             </center>
             <left>
-                <ColorPicker fx:id="_colorPicker" prefHeight="38.0" prefWidth="38.0" />
+                <VBox>
+                    <ColorPicker fx:id="_colorPicker" prefHeight="38.0" prefWidth="38.0" />
+                    <Text text="Size:"/>
+                    <TextField text="18" fx:id="_brushSize" prefHeight="38.0" prefWidth="38.0"/>
+                    <Button mnemonicParsing="false" onAction="#changeSize" text="Confirm" />
+
+                </VBox>
             </left>
             <bottom>
                 <Button mnemonicParsing="false" onAction="#onExitClick" text="Exit" BorderPane.alignment="CENTER" />
