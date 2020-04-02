@@ -17,6 +17,7 @@ public class Scooter {
 	
 	public void lock() {
 		if(!locked) {
+			locked = true;
 			System.out.println("Scooter now locked");
 		}
 	}
