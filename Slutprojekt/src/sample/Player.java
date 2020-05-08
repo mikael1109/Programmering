@@ -1,10 +1,20 @@
 package sample;
 
+import javafx.animation.AnimationTimer;
+import javafx.scene.shape.Circle;
+
 public class Player {
 
-    double jumpHeight = 0;
+    public void jump(Circle player){
+        new AnimationTimer() {
 
-    public void jump(double jumpHeight){
-
+            @Override
+            public void handle(long now) {
+                do{
+                    player.setTranslateY(player.getTranslateY() - 10);
+                    System.out.println(player.getTranslateY());
+                }while(player.getTranslateY() > 200);
+            }
+        }.start();
     }
 }
