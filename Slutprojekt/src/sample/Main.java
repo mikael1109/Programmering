@@ -7,8 +7,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 
-import java.awt.*;
-
 public class Main extends Application {
 
     Controller controller = new Controller();
