@@ -16,6 +16,7 @@ import javafx.scene.shape.*;
 public class Controller {
 
     int gameTime = 0;
+    Enemy enemyClass = new Enemy();
     Player playerClass = new Player();
     Circle player = new Circle(40, Color.RED);
     Rectangle ground = new Rectangle(700, 100, Color.GREEN);
@@ -46,7 +47,7 @@ public class Controller {
             @Override
             public void handle(long now) {
                 if (!player.getBoundsInParent().intersects(ground.getBoundsInParent())) {
-                    player.setTranslateY(player.getTranslateY() + 10);
+                    player.setTranslateY(player.getTranslateY() + 8);
                 }
             }
         }.start();
@@ -88,6 +89,8 @@ public class Controller {
         enemy.setTranslateY(320);
         enemy.setTranslateX(600);
         pane.getChildren().add(enemy);
+        enemyClass.move(enemy, gameTime, player, gameStage);
     }
+
 
 }

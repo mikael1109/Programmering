@@ -13,7 +13,7 @@ public class Player {
                     do {
                         player.setTranslateY(player.getTranslateY() - 15);
                         System.out.println(player.getTranslateY());
-                    } while (player.getTranslateY() >= 150);
+                    } while (player.getTranslateY() >= 100);
                     stop();
                 }
             }
