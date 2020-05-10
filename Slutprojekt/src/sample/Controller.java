@@ -81,34 +81,19 @@ public class Controller {
 
         pane.getChildren().addAll(player, ground, jump, gameTimer);
 
-        spawnEnemies();
+        spawnEnemy();
     }
 
 
-    public void spawnEnemies() {
-        Runnable r = new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    System.out.println(e);
-                }
-                while (gameStage.isShowing()) {
-                    Rectangle enemy = new Rectangle();
-                    enemy.setWidth(50);
-                    enemy.setHeight(100);
-                    enemy.setFill(Color.DARKOLIVEGREEN);
-                    enemy.setTranslateY(320);
-                    enemy.setTranslateX(600);
-                    pane.getChildren().add(enemy);
-                    enemyClass.move(enemy, gameTime, player, gameStage);
-                }
-            }
-        };
-
-        Thread t = new Thread(r);
-        t.start();
+    public void spawnEnemy() {
+        Rectangle enemy = new Rectangle();
+        enemy.setWidth(50);
+        enemy.setHeight(100);
+        enemy.setFill(Color.DARKOLIVEGREEN);
+        enemy.setTranslateY(320);
+        enemy.setTranslateX(600);
+        pane.getChildren().add(enemy);
+        enemyClass.move(enemy, gameTime, player, gameStage);
     }
 
 
