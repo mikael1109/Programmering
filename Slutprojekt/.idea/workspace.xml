@@ -6,8 +6,6 @@
       <change beforePath="$PROJECT_DIR$/out/production/JavaFxApplication/sample/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaFxApplication/sample/Controller$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaFxApplication/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaFxApplication/sample/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,22 +209,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589115444485" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1589119258362">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1589121192839">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589119258362" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1589119258362">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589121192839" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1589121192838">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589119258362" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1589119258362">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589121192838" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1589121192838">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589119258362" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1589119258362">
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589121192838" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1589121192838">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589119258362" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589121192838" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1589118802551">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -247,5 +245,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="655" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589110498243" />
+    <state x="657" y="118" width="606" height="804" key="find.popup" timestamp="1589120366929">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="657" y="118" width="606" height="804" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589120366929" />
   </component>
 </project>

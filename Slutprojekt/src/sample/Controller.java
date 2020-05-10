@@ -1,4 +1,5 @@
 package sample;
+
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -11,6 +12,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.*;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 
 public class Controller {
@@ -53,7 +56,7 @@ public class Controller {
         }.start();
 
         jump.setOnKeyPressed(event -> {
-            if(event.getCode() == KeyCode.SPACE){
+            if (event.getCode() == KeyCode.SPACE) {
                 playerClass.jump(player);
             }
         });
@@ -68,7 +71,7 @@ public class Controller {
                     }
                     gameTime++;
                     gameTimer.setText(Integer.toString(gameTime));
-                }while(gameStage.isShowing());
+                } while (gameStage.isShowing());
             }
         };
 
@@ -76,20 +79,36 @@ public class Controller {
 
         t.start();
 
-        pane.getChildren().addAll(player,ground, jump, gameTimer);
+        pane.getChildren().addAll(player, ground, jump, gameTimer);
 
-        spawnEnemy();
+        spawnEnemies();
     }
 
-    public void spawnEnemy(){
-        Rectangle enemy = new Rectangle();
-        enemy.setWidth(50);
-        enemy.setHeight(100);
-        enemy.setFill(Color.DARKOLIVEGREEN);
-        enemy.setTranslateY(320);
-        enemy.setTranslateX(600);
-        pane.getChildren().add(enemy);
-        enemyClass.move(enemy, gameTime, player, gameStage);
+
+    public void spawnEnemies() {
+        Runnable r = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    System.out.println(e);
+                }
+                while (gameStage.isShowing()) {
+                    Rectangle enemy = new Rectangle();
+                    enemy.setWidth(50);
+                    enemy.setHeight(100);
+                    enemy.setFill(Color.DARKOLIVEGREEN);
+                    enemy.setTranslateY(320);
+                    enemy.setTranslateX(600);
+                    pane.getChildren().add(enemy);
+                    enemyClass.move(enemy, gameTime, player, gameStage);
+                }
+            }
+        };
+
+        Thread t = new Thread(r);
+        t.start();
     }
 
 
