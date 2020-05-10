@@ -37,14 +37,14 @@ public class Controller {
             @Override
             public void handle(long now) {
                 if (!player.getBoundsInParent().intersects(ground.getBoundsInParent())) {
-                    player.setTranslateY(player.getTranslateY() + 6);
+                    player.setTranslateY(player.getTranslateY() + 10);
                 }
                 
             }
         }.start();
 
         jump.setOnKeyPressed(event -> {
-            if(event.getCode() == KeyCode.ENTER){
+            if(event.getCode() == KeyCode.SPACE){
                 playerClass.jump(player);
             }
         });
